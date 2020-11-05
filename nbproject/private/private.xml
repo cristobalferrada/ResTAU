@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Personal.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/proveedor/Modificar_Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Conexion_BD.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/restau/ResTAU.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Usuario/Interfaz_Eliminar_Usuario.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/img/Imagen3.png</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/proveedor/Agregar_Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Mesa.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/img/campos.png</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/VIDEO.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Ingrediente/Modificar_Ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Usuario/Interfaz_Agregar_Usuario.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Login/AWTUtilities.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Manejadora.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Mesas/Agregar_Mesa.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/proveedor/Mostrar_Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Administrar_datos_personal.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Usuario/Interfaz_mostrar_Usuario.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Ingrediente/Ingresar_Ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/proveedor/Eliminar_Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Clases/Usuario.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Menu_Restau.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Ingrediente/Mostrar_Ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Administrar_Mesas.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Ingrediente/Eliminar_Ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Login/Login_PRINCIPAL.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Ingrediente/Interfaz_modificar_ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Mesas/Modificar_Mesa.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/restau/Conexion_BD.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Menu_principal.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Ventana_administracion_ingrediente.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/img/password1.png</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Mesas/Mostrar_Mesa.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Administrar_Proveedor.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Mesas/Eliminar_Mesa.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Vista/Usuario/Interfaz_Modificar_Usuario.java</file>
+            <file>file:/C:/Users/the_t/Desktop/PORTAFOLIO%20DE%20TITULO/PORTAFOLIO%20RESTAU/JAVA/ResTAU/src/Ventanas_Administracion/Administrar_Ingrediente.java</file>
+        </group>
+    </open-files>
+</project-private>
