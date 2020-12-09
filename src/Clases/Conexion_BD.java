@@ -20,12 +20,9 @@ public class Conexion_BD {
             String DB="jdbc:oracle:thin:@localhost:1521:orcl";
             String user = "portafolio_tobal";
             String pass = "toballxd";
-            
-            
-            
+        
             Connection con = DriverManager.getConnection(DB, user, pass);  
-            
-            
+         
             return con;
             
         }catch (SQLException e) {

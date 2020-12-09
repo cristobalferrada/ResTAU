@@ -9,13 +9,26 @@ import Vista.Usuario.*;
 import Clases.Manejadora;
 import Clases.Mesa;
 import Clases.Personal;
-import Ventanas.*;
+
+//import Ventanas.*;
 import Ventanas_Administracion.Administrar_Mesas;
+import Ventanas_Administracion.Administrar_Proveedor;
+import Ventanas_Administracion.Administrar_datos_personal;
 import Ventanas_Administracion.Menu_principal;
-import Vista.Menu_Restau;
+import Vista.Factura.Interfaz_Factura;
+import Vista.Ingrediente.interfaz_Ingrediente;
+import Vista.Recetario.interfaz_Recetario;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -23,15 +36,23 @@ import javax.swing.JPanel;
  */
 public class Agregar_Mesa extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home
-     */
+    
+             int lastid;      
+            Connection con;
+            ResultSet rs;
+            Statement st;
+            PreparedStatement pst;
+    
+    
+    
+        
     public Agregar_Mesa() {
         initComponents();
+        getlastid();
         this.setLocationRelativeTo(this);
-        setColor(btn_1); 
+        setColor(btn_inicio_agre_mesa); 
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
+        resetColor(new JPanel[]{btn_datper_agre_mesa,btn_ingred_adm_mesa,btn_admmes_agre_mesa}, new JPanel[]{ind_2,ind_3, ind_4});
         //jProgressBar1.setValue(50);
         jb_info_nombre.setToolTipText(""
                 + "<html>"
@@ -67,7 +88,7 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_agregar.setToolTipText(""
+        btn_agregar.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -84,7 +105,7 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_volver.setToolTipText(""
+        btn_volver.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -102,6 +123,39 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                 + "</html>"
                 +"");
    }
+    
+    
+    public void getlastid()
+    {
+         try {
+            
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String DB="jdbc:oracle:thin:@localhost:1521:orcl";
+            String user = "portafolio_tobal";
+            String pass = "toballxd";
+            String sql = "Select max(ID_MESA) from MESA";
+          Connection con = DriverManager.getConnection(DB, user, pass);  
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            if(rs.next())
+            {
+                lastid = rs.getInt(1);
+                lastid++;
+                txtrut.setText(Integer.toString(lastid));
+            }
+            
+        }catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+            
+        }catch (ClassNotFoundException cs) {
+            
+            System.out.println(cs.getMessage());
+            
+        }       
+    }
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,49 +167,54 @@ public class Agregar_Mesa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_exit = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lbl_id_mesa = new javax.swing.JLabel();
         txtrut = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtnom = new javax.swing.JTextField();
+        lbl_num_mesa = new javax.swing.JLabel();
+        txt_numero_mesa = new javax.swing.JTextField();
         jb_info_nombre = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        txtape = new javax.swing.JTextField();
+        lbl_logoazul_restau = new javax.swing.JLabel();
+        lbl_capaci_mesa = new javax.swing.JLabel();
+        cbo_estilo_mesa = new javax.swing.JComboBox<>();
+        txt_capacidad_mesa = new javax.swing.JTextField();
+        txt_fecha_registro_mesa = new javax.swing.JFormattedTextField();
         jb_info_apellido = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtcorreo = new javax.swing.JTextField();
-        jButton_agregar = new javax.swing.JButton();
-        jButton_volver = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        side_pane = new javax.swing.JPanel();
-        btn_1 = new javax.swing.JPanel();
+        lbl_estilo_mesa = new javax.swing.JLabel();
+        lbl_fecha_regist_mesa = new javax.swing.JLabel();
+        btn_agregar = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
+        pnl_barra_lateral_agre_mesa = new javax.swing.JPanel();
+        btn_inicio_agre_mesa = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        side_pane1 = new javax.swing.JPanel();
-        btn_11 = new javax.swing.JPanel();
+        lbl_inicio_agre_mesa = new javax.swing.JLabel();
+        pnl_barra_amarilla_agre_mesa = new javax.swing.JPanel();
+        btn_prove_agre_mesa = new javax.swing.JPanel();
         ind_11 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        lbl_proveedores_agre_mesa = new javax.swing.JLabel();
+        btn_datper_agre_mesa = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_4 = new javax.swing.JPanel();
+        lbl_dtos_perso_agre_mesa = new javax.swing.JLabel();
+        btn_admmes_agre_mesa = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btn_3 = new javax.swing.JPanel();
+        lbl_adm_mesa_agre_mesa = new javax.swing.JLabel();
+        btn_ingred_adm_mesa = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        lbl_ingre_agre_mesa = new javax.swing.JLabel();
+        btn_exit = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        lbl_estado_mesa = new javax.swing.JLabel();
+        pnl_barra_superior_agre_mesa = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jctipo_personal = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        cbo_estado_mesa = new javax.swing.JComboBox<>();
+        lbl_logorojo_restau = new javax.swing.JLabel();
+        lbl_fondo_interfaz_agre_mesa = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,18 +233,12 @@ public class Agregar_Mesa extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
-        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_exitMousePressed(evt);
-            }
-        });
-        getContentPane().add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 30, 46));
+        lbl_id_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id_mesa.setText("ID MESA:");
+        getContentPane().add(lbl_id_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 10));
 
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("ID MESA:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 94, -1));
-
+        txtrut.setEditable(false);
+        txtrut.setEnabled(false);
         txtrut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtrutActionPerformed(evt);
@@ -196,88 +249,99 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                 txtrutKeyTyped(evt);
             }
         });
-        getContentPane().add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 190, -1));
+        getContentPane().add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 80, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NUMERO MESA:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
+        lbl_num_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_num_mesa.setText("NUMERO MESA:");
+        getContentPane().add(lbl_num_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
-        txtnom.addActionListener(new java.awt.event.ActionListener() {
+        txt_numero_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnomActionPerformed(evt);
+                txt_numero_mesaActionPerformed(evt);
             }
         });
-        txtnom.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_numero_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtnomKeyTyped(evt);
+                txt_numero_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 190, -1));
+        getContentPane().add(txt_numero_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 190, -1));
 
         jb_info_nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jb_info_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jb_info_nombre.setText("(?)");
         getContentPane().add(jb_info_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 21, -1));
 
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("CAPACIDAD MESA:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 111, -1));
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 90));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Premium", "Familiar", "Ejecutiva", "Personal", "Casual" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        lbl_capaci_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_capaci_mesa.setText("CAPACIDAD MESA:");
+        getContentPane().add(lbl_capaci_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 111, -1));
+
+        cbo_estilo_mesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Premium", "Familiar", "Ejecutiva", "Personal", "Casual" }));
+        cbo_estilo_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbo_estilo_mesaActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 190, -1));
+        getContentPane().add(cbo_estilo_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 190, -1));
 
-        txtape.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_capacidad_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtapeKeyTyped(evt);
+                txt_capacidad_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtape, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 190, -1));
+        getContentPane().add(txt_capacidad_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 190, -1));
+
+        try {
+            txt_fecha_registro_mesa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_fecha_registro_mesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_fecha_registro_mesaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_fecha_registro_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 190, -1));
 
         jb_info_apellido.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jb_info_apellido.setForeground(new java.awt.Color(255, 255, 255));
         jb_info_apellido.setText("(?)");
         getContentPane().add(jb_info_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ESTILO MESA:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        lbl_estilo_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_estilo_mesa.setText("ESTILO MESA:");
+        getContentPane().add(lbl_estilo_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("FECHA REGISTRO MESA:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
-        getContentPane().add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 190, -1));
+        lbl_fecha_regist_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fecha_regist_mesa.setText("FECHA REGISTRO MESA:");
+        getContentPane().add(lbl_fecha_regist_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
 
-        jButton_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
-        jButton_agregar.addActionListener(new java.awt.event.ActionListener() {
+        btn_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_agregarActionPerformed(evt);
+                btn_agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 110, -1));
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 110, -1));
 
-        jButton_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
-        jButton_volver.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_volverActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 80, -1));
+        getContentPane().add(btn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 80, -1));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 90));
+        pnl_barra_lateral_agre_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_lateral_agre_mesa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        side_pane.setBackground(new java.awt.Color(23, 35, 51));
-        side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btn_1.setBackground(new java.awt.Color(23, 35, 51));
-        btn_1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inicio_agre_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio_agre_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_1MousePressed(evt);
+                btn_inicio_agre_mesaMousePressed(evt);
             }
         });
 
@@ -295,41 +359,41 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Inicio");
+        lbl_inicio_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_agre_mesa.setText("Inicio");
 
-        javax.swing.GroupLayout btn_1Layout = new javax.swing.GroupLayout(btn_1);
-        btn_1.setLayout(btn_1Layout);
-        btn_1Layout.setHorizontalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_inicio_agre_mesaLayout = new javax.swing.GroupLayout(btn_inicio_agre_mesa);
+        btn_inicio_agre_mesa.setLayout(btn_inicio_agre_mesaLayout);
+        btn_inicio_agre_mesaLayout.setHorizontalGroup(
+            btn_inicio_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lbl_inicio_agre_mesa)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        btn_1Layout.setVerticalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        btn_inicio_agre_mesaLayout.setVerticalGroup(
+            btn_inicio_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_1Layout.createSequentialGroup()
+            .addGroup(btn_inicio_agre_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_inicio_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 120, -1));
+        pnl_barra_lateral_agre_mesa.add(btn_inicio_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, -1));
 
-        side_pane1.setBackground(new java.awt.Color(251, 243, 0));
-        side_pane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        side_pane.add(side_pane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 10, 500));
+        pnl_barra_amarilla_agre_mesa.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla_agre_mesa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_barra_lateral_agre_mesa.add(pnl_barra_amarilla_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 10, 500));
 
-        btn_11.setBackground(new java.awt.Color(23, 35, 51));
-        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_prove_agre_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_prove_agre_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_11MouseReleased(evt);
+                btn_prove_agre_mesaMouseReleased(evt);
             }
         });
 
@@ -347,37 +411,37 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Proveedores");
+        lbl_proveedores_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_proveedores_agre_mesa.setText("Proveedores");
 
-        javax.swing.GroupLayout btn_11Layout = new javax.swing.GroupLayout(btn_11);
-        btn_11.setLayout(btn_11Layout);
-        btn_11Layout.setHorizontalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_prove_agre_mesaLayout = new javax.swing.GroupLayout(btn_prove_agre_mesa);
+        btn_prove_agre_mesa.setLayout(btn_prove_agre_mesaLayout);
+        btn_prove_agre_mesaLayout.setHorizontalGroup(
+            btn_prove_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_agre_mesa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        btn_11Layout.setVerticalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        btn_prove_agre_mesaLayout.setVerticalGroup(
+            btn_prove_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_11Layout.createSequentialGroup()
+            .addGroup(btn_prove_agre_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_proveedores_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+        pnl_barra_lateral_agre_mesa.add(btn_prove_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_datper_agre_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_datper_agre_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_datper_agre_mesaMouseReleased(evt);
             }
         });
 
@@ -395,36 +459,36 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Datos de personal");
+        lbl_dtos_perso_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dtos_perso_agre_mesa.setText("Datos de personal");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_datper_agre_mesaLayout = new javax.swing.GroupLayout(btn_datper_agre_mesa);
+        btn_datper_agre_mesa.setLayout(btn_datper_agre_mesaLayout);
+        btn_datper_agre_mesaLayout.setHorizontalGroup(
+            btn_datper_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addComponent(lbl_dtos_perso_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_datper_agre_mesaLayout.setVerticalGroup(
+            btn_datper_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_datper_agre_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_dtos_perso_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, -1));
+        pnl_barra_lateral_agre_mesa.add(btn_datper_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
 
-        btn_4.setBackground(new java.awt.Color(251, 243, 0));
-        btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_admmes_agre_mesa.setBackground(new java.awt.Color(251, 243, 0));
+        btn_admmes_agre_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_4MousePressed(evt);
+                btn_admmes_agre_mesaMousePressed(evt);
             }
         });
 
@@ -442,36 +506,36 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setText("Administrar Mesas");
+        lbl_adm_mesa_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_agre_mesa.setText("Administrar Mesas");
 
-        javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
-        btn_4.setLayout(btn_4Layout);
-        btn_4Layout.setHorizontalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_admmes_agre_mesaLayout = new javax.swing.GroupLayout(btn_admmes_agre_mesa);
+        btn_admmes_agre_mesa.setLayout(btn_admmes_agre_mesaLayout);
+        btn_admmes_agre_mesaLayout.setHorizontalGroup(
+            btn_admmes_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(lbl_adm_mesa_agre_mesa)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-        btn_4Layout.setVerticalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        btn_admmes_agre_mesaLayout.setVerticalGroup(
+            btn_admmes_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_agre_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_4Layout.createSequentialGroup()
+            .addGroup(btn_admmes_agre_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_adm_mesa_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, -1));
+        pnl_barra_lateral_agre_mesa.add(btn_admmes_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 140, -1));
 
-        btn_3.setBackground(new java.awt.Color(23, 35, 51));
-        btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ingred_adm_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_ingred_adm_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_3MousePressed(evt);
+                btn_ingred_adm_mesaMousePressed(evt);
             }
         });
 
@@ -489,46 +553,158 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ingredientes");
+        lbl_ingre_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ingre_agre_mesa.setText("Ingredientes");
 
-        javax.swing.GroupLayout btn_3Layout = new javax.swing.GroupLayout(btn_3);
-        btn_3.setLayout(btn_3Layout);
-        btn_3Layout.setHorizontalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_ingred_adm_mesaLayout = new javax.swing.GroupLayout(btn_ingred_adm_mesa);
+        btn_ingred_adm_mesa.setLayout(btn_ingred_adm_mesaLayout);
+        btn_ingred_adm_mesaLayout.setHorizontalGroup(
+            btn_ingred_adm_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_mesaLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
-        btn_3Layout.setVerticalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
-                .addGroup(btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btn_ingred_adm_mesaLayout.setVerticalGroup(
+            btn_ingred_adm_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_mesaLayout.createSequentialGroup()
+                .addGroup(btn_ingred_adm_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_ingre_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        side_pane.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 40));
+        pnl_barra_lateral_agre_mesa.add(btn_ingred_adm_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
 
-        getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 590));
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("ESTADO DE MESA:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
+        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_exitMousePressed(evt);
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnl_barra_lateral_agre_mesa.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 30, 46));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
+            }
+        });
+
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+        lbl_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_recetarioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_agre_mesa.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_agre_mesa.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 140, -1));
+
+        getContentPane().add(pnl_barra_lateral_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 590));
+
+        lbl_estado_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_estado_mesa.setText("ESTADO DE MESA:");
+        getContentPane().add(lbl_estado_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
+
+        pnl_barra_superior_agre_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior_agre_mesa.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_barra_superior_agre_mesaMouseDragged(evt);
+            }
+        });
+        pnl_barra_superior_agre_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                pnl_barra_superior_agre_mesaMousePressed(evt);
             }
         });
 
@@ -548,17 +724,17 @@ public class Agregar_Mesa extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("AGREGAR MESAS");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_barra_superior_agre_mesaLayout = new javax.swing.GroupLayout(pnl_barra_superior_agre_mesa);
+        pnl_barra_superior_agre_mesa.setLayout(pnl_barra_superior_agre_mesaLayout);
+        pnl_barra_superior_agre_mesaLayout.setHorizontalGroup(
+            pnl_barra_superior_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
                 .addContainerGap(330, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(pnl_barra_superior_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addGap(159, 159, 159)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -566,16 +742,16 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        pnl_barra_superior_agre_mesaLayout.setVerticalGroup(
+            pnl_barra_superior_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
+                .addGroup(pnl_barra_superior_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl_barra_superior_agre_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnl_barra_superior_agre_mesaLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -583,53 +759,49 @@ public class Agregar_Mesa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
+        getContentPane().add(pnl_barra_superior_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
 
-        jctipo_personal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "EN BODEGA", "EN LOCAL" }));
-        jctipo_personal.setDoubleBuffered(true);
-        getContentPane().add(jctipo_personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 190, -1));
+        cbo_estado_mesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "EN BODEGA", "EN LOCAL" }));
+        cbo_estado_mesa.setDoubleBuffered(true);
+        getContentPane().add(cbo_estado_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 190, -1));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
-        jLabel19.setText("jLabel17");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 260, 320));
+        lbl_logorojo_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
+        lbl_logorojo_restau.setText("jLabel17");
+        getContentPane().add(lbl_logorojo_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 180, 260, 320));
 
-        jLabel1.setBackground(new java.awt.Color(83, 83, 83));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 920, 500));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
-        jLabel20.setText("jLabel17");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 270, -1));
+        lbl_fondo_interfaz_agre_mesa.setBackground(new java.awt.Color(83, 83, 83));
+        lbl_fondo_interfaz_agre_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 920, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     int xx,xy;
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void pnl_barra_superior_agre_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_agre_mesaMousePressed
         // TODO add your handling code here:
         //drag this pane
         xx = evt.getX();
         xy = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }//GEN-LAST:event_pnl_barra_superior_agre_mesaMousePressed
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void pnl_barra_superior_agre_mesaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_agre_mesaMouseDragged
         // TODO add your handling code here:
         
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }//GEN-LAST:event_pnl_barra_superior_agre_mesaMouseDragged
 
-    private void btn_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MousePressed
+    private void btn_inicio_agre_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_agre_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_1);
+        setColor(btn_inicio_agre_mesa);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
-       Vista.Menu_Restau evento = new Vista.Menu_Restau();
-        evento.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_agre_mesa,btn_ingred_adm_mesa,btn_admmes_agre_mesa}, new JPanel[]{ind_2,ind_3, ind_4});
+        Menu_principal mp = new Menu_principal();
+        mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_1MousePressed
+    }//GEN-LAST:event_btn_inicio_agre_mesaMousePressed
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
         // TODO add your handling code here:
@@ -642,66 +814,68 @@ public class Agregar_Mesa extends javax.swing.JFrame {
 
     private void txtrutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrutActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtrutActionPerformed
 
     private void txtrutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrutKeyTyped
         // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if( n<'0' || n>'9' )evt.consume();
+        txtrut.setEditable(false);
+       txtrut.setEnabled(false);
+    
     }//GEN-LAST:event_txtrutKeyTyped
 
-    private void txtnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomActionPerformed
+    private void txt_numero_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numero_mesaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnomActionPerformed
+    }//GEN-LAST:event_txt_numero_mesaActionPerformed
 
-    private void txtnomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomKeyTyped
+    private void txt_numero_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numero_mesaKeyTyped
         // TODO add your handling code here:
       /*  char n = evt.getKeyChar();
         if((n<'a' || n>'z') && (n<'A' || n>'Z') && (n<' ' || n>' '))evt.consume();*/  
         char n = evt.getKeyChar();
         if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txtnomKeyTyped
+    }//GEN-LAST:event_txt_numero_mesaKeyTyped
 
-    private void txtapeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapeKeyTyped
+    private void txt_capacidad_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_capacidad_mesaKeyTyped
         // TODO add your handling code here:
        /* char n = evt.getKeyChar();
         if((n<'a' || n>'z') && (n<'A' || n>'Z') && (n<' ' || n>' '))evt.consume();*/
          char n = evt.getKeyChar();
         if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txtapeKeyTyped
+    }//GEN-LAST:event_txt_capacidad_mesaKeyTyped
 
-    private void jButton_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_agregarActionPerformed
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
         try
         {
             Mesa per = new Mesa();
-            per.setId_mesa(Integer.parseInt(txtrut.getText().trim()));
-            per.setNumero_mesa(Integer.parseInt(txtnom.getText().trim()));
-            per.setCapacidad_mesa(Integer.parseInt(txtape.getText().trim()));
+            per.setId_mesa(txtrut.getText().trim());
+            per.setNumero_mesa(Integer.parseInt(txt_numero_mesa.getText().trim()));
+            per.setCapacidad_mesa(Integer.parseInt(txt_capacidad_mesa.getText().trim()));
             
-              if(jComboBox1.getSelectedIndex() == 0)
+              if(cbo_estilo_mesa.getSelectedIndex() == 0)
             {
                 per.setEn_uso("Sin definir");
             }else {
-                per.setEstilo_mesa(jComboBox1.getSelectedItem().toString());
+                per.setEstilo_mesa(cbo_estilo_mesa.getSelectedItem().toString());
             }
-            per.setFecha_registro(txtcorreo.getText().trim());
-            if(jctipo_personal.getSelectedIndex() == 0)
+            per.setFecha_registro(txt_fecha_registro_mesa.getText().trim());
+            if(cbo_estado_mesa.getSelectedIndex() == 0)
             {
                 per.setEn_uso("Sin definir");
             }else {
-                per.setEn_uso(jctipo_personal.getSelectedItem().toString());
+                per.setEn_uso(cbo_estado_mesa.getSelectedItem().toString());
             }
 
             if (Manejadora.agregarMesa(per))
             {
                 JOptionPane.showMessageDialog(null, "Se ha creado un registro exitosamente");
-                this.txtrut.setText(null);
-                this.txtnom.setText(null);
-                this.txtape.setText(null);
-                this.jComboBox1.setSelectedIndex(0);
-                this.txtcorreo.setText(null);
-                this.jctipo_personal.setSelectedIndex(0);
+                getlastid();
+                this.txt_numero_mesa.setText(null);
+                this.txt_capacidad_mesa.setText(null);
+                this.cbo_estilo_mesa.setSelectedIndex(0);
+                this.txt_fecha_registro_mesa.setText(null);
+                this.cbo_estado_mesa.setSelectedIndex(0);
             } else {
                 JOptionPane.showMessageDialog(null, "no se pudo crear el registro","ERROR",0);
             }
@@ -711,55 +885,81 @@ public class Agregar_Mesa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "no se han ingresado datos", "Informacion", 1);
         }
 
-    }//GEN-LAST:event_jButton_agregarActionPerformed
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
-    private void jButton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_volverActionPerformed
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         // TODO add your handling code here:
         Administrar_Mesas dp = new Administrar_Mesas();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton_volverActionPerformed
+    }//GEN-LAST:event_btn_volverActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbo_estilo_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_estilo_mesaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbo_estilo_mesaActionPerformed
 
-    private void btn_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseReleased
+    private void btn_prove_agre_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prove_agre_mesaMouseReleased
         // TODO add your handling code here:
-        Interfaz_Agregar_Usuario menu = new Interfaz_Agregar_Usuario();
-        menu.setVisible(true);
+        Administrar_Proveedor adm_prove = new Administrar_Proveedor();
+        adm_prove.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_11MouseReleased
+    }//GEN-LAST:event_btn_prove_agre_mesaMouseReleased
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_datper_agre_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datper_agre_mesaMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_datper_agre_mesa);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_3,btn_4}, new JPanel[]{ind_1,ind_3, ind_4});
-        Vista.Menu_Restau dp = new Vista.Menu_Restau();
+        resetColor(new JPanel[]{btn_inicio_agre_mesa,btn_ingred_adm_mesa,btn_admmes_agre_mesa}, new JPanel[]{ind_1,ind_3, ind_4});
+        Administrar_datos_personal dp = new Administrar_datos_personal();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_2MouseReleased
+    }//GEN-LAST:event_btn_datper_agre_mesaMouseReleased
 
-    private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
+    private void btn_admmes_agre_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_admmes_agre_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_4);
+        setColor(btn_admmes_agre_mesa);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_1}, new JPanel[]{ind_2,ind_3, ind_1});
-        Vista.Menu_Restau stock = new Vista.Menu_Restau();
-        stock.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_agre_mesa,btn_ingred_adm_mesa,btn_inicio_agre_mesa}, new JPanel[]{ind_2,ind_3, ind_1});
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_4MousePressed
+    }//GEN-LAST:event_btn_admmes_agre_mesaMousePressed
 
-    private void btn_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MousePressed
+    private void btn_ingred_adm_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingred_adm_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_3);
+        setColor(btn_ingred_adm_mesa);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_4}, new JPanel[]{ind_2,ind_1, ind_4});
-        Ventanas_Administracion.Ventana_administracion_ingrediente evento = new Ventanas_Administracion.Ventana_administracion_ingrediente();
-        evento.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_agre_mesa,btn_inicio_agre_mesa,btn_admmes_agre_mesa}, new JPanel[]{ind_2,ind_1, ind_4});
+        interfaz_Ingrediente adm_ingre = new interfaz_Ingrediente();
+        adm_ingre.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_3MousePressed
+    }//GEN-LAST:event_btn_ingred_adm_mesaMousePressed
+
+    private void txt_fecha_registro_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fecha_registro_mesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_fecha_registro_mesaActionPerformed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
+
+    private void btn_recetarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseClicked
+         interfaz_Recetario recetario = new interfaz_Recetario();
+        recetario.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseClicked
+
+    private void lbl_recetarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_recetarioMouseClicked
+          interfaz_Recetario adm_ingre_2 = new interfaz_Recetario();
+        adm_ingre_2.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbl_recetarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -816,49 +1016,54 @@ public class Agregar_Mesa extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_11;
-    private javax.swing.JPanel btn_2;
-    private javax.swing.JPanel btn_3;
-    private javax.swing.JPanel btn_4;
+    private javax.swing.JPanel btn_admmes_agre_mesa;
+    private javax.swing.JButton btn_agregar;
+    private javax.swing.JPanel btn_datper_agre_mesa;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel btn_ingred_adm_mesa;
+    private javax.swing.JPanel btn_inicio_agre_mesa;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JPanel btn_prove_agre_mesa;
+    private javax.swing.JPanel btn_recetario;
+    private javax.swing.JButton btn_volver;
+    private javax.swing.JComboBox<String> cbo_estado_mesa;
+    private javax.swing.JComboBox<String> cbo_estilo_mesa;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
-    private javax.swing.JButton jButton_agregar;
-    private javax.swing.JButton jButton_volver;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel jb_info_apellido;
     private javax.swing.JLabel jb_info_nombre;
-    private javax.swing.JComboBox<String> jctipo_personal;
-    private javax.swing.JPanel side_pane;
-    private javax.swing.JPanel side_pane1;
-    private javax.swing.JTextField txtape;
-    private javax.swing.JTextField txtcorreo;
-    private javax.swing.JTextField txtnom;
+    private javax.swing.JLabel lbl_adm_mesa_agre_mesa;
+    private javax.swing.JLabel lbl_capaci_mesa;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_agre_mesa;
+    private javax.swing.JLabel lbl_estado_mesa;
+    private javax.swing.JLabel lbl_estilo_mesa;
+    private javax.swing.JLabel lbl_fecha_regist_mesa;
+    private javax.swing.JLabel lbl_fondo_interfaz_agre_mesa;
+    private javax.swing.JLabel lbl_id_mesa;
+    private javax.swing.JLabel lbl_ingre_agre_mesa;
+    private javax.swing.JLabel lbl_inicio_agre_mesa;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_logorojo_restau;
+    private javax.swing.JLabel lbl_num_mesa;
+    private javax.swing.JLabel lbl_proveedores_agre_mesa;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JPanel pnl_barra_amarilla_agre_mesa;
+    private javax.swing.JPanel pnl_barra_lateral_agre_mesa;
+    private javax.swing.JPanel pnl_barra_superior_agre_mesa;
+    private javax.swing.JTextField txt_capacidad_mesa;
+    private javax.swing.JFormattedTextField txt_fecha_registro_mesa;
+    private javax.swing.JTextField txt_numero_mesa;
     private javax.swing.JTextField txtrut;
     // End of variables declaration//GEN-END:variables
 }

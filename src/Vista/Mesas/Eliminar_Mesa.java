@@ -6,14 +6,18 @@
 package Vista.Mesas;
 
 import Vista.Usuario.*;
-import Ventanas.*;
+//import Ventanas.*;
 import java.awt.Color;
 import javax.swing.JPanel;
 import Clases.Manejadora;
 import Clases.Personal;
 import Ventanas_Administracion.Administrar_Mesas;
+import Ventanas_Administracion.Administrar_Proveedor;
 import Ventanas_Administracion.Administrar_datos_personal;
-import Vista.Menu_Restau;
+import Ventanas_Administracion.Menu_principal;
+import Vista.Factura.Interfaz_Factura;
+import Vista.Ingrediente.interfaz_Ingrediente;
+import Vista.Recetario.interfaz_Recetario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -33,9 +37,9 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
     public Eliminar_Mesa() {
         initComponents();
         this.setLocationRelativeTo(this);
-        setColor(btn_1); 
+        setColor(btn_inicio); 
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
+        resetColor(new JPanel[]{btn_datper_elim_mesa,btn_ingred_elim_mesa,btn_admmes_elim_mesa}, new JPanel[]{ind_2,ind_3, ind_4});
         //jProgressBar1.setValue(50);
         jl_info_rut.setToolTipText(""
                 + "<html>"
@@ -54,7 +58,7 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_buscar.setToolTipText(""
+        btn_buscar.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -71,7 +75,7 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_volver.setToolTipText(""
+        btn_volver.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -88,7 +92,7 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_eliminar.setToolTipText(""
+        btn_eliminar.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -122,40 +126,45 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
         side_pane5 = new javax.swing.JPanel();
         side_pane4 = new javax.swing.JPanel();
         side_pane7 = new javax.swing.JPanel();
-        side_pane8 = new javax.swing.JPanel();
         side_pane1 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        lbl_logoazul_restau = new javax.swing.JLabel();
         jButton_mostrar = new javax.swing.JButton();
         side_pane = new javax.swing.JPanel();
-        btn_1 = new javax.swing.JPanel();
+        btn_inicio = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lbl_inicio = new javax.swing.JLabel();
         btn_exit = new javax.swing.JLabel();
-        btn_11 = new javax.swing.JPanel();
+        btn_prove_elim_mesa = new javax.swing.JPanel();
         ind_11 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        lbl_proveedores_elim_mesa = new javax.swing.JLabel();
+        btn_datper_elim_mesa = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_4 = new javax.swing.JPanel();
+        lbl_dtos_perso_elim_mesa = new javax.swing.JLabel();
+        btn_admmes_elim_mesa = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btn_3 = new javax.swing.JPanel();
+        lbl_adm_mesa_elim_mesa = new javax.swing.JLabel();
+        btn_ingred_elim_mesa = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        lbl_ingre_elim_mesa = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        pnl_barra_superior_elim_mesa = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jButton_eliminar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
         jl_info_rut = new javax.swing.JLabel();
-        jButton_volver = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        txtrut = new javax.swing.JTextField();
-        jButton_buscar = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
+        lbl_numero_mesa = new javax.swing.JLabel();
+        txt_numero_mesa = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_mostrar = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        tbl_elim_mesa = new javax.swing.JTable();
+        lbl_fondo_interfaz_elim_mesa = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,17 +204,13 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
         side_pane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(side_pane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 190, 10, 290));
 
-        side_pane8.setBackground(new java.awt.Color(251, 243, 0));
-        side_pane8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(side_pane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 80, 20));
-
         side_pane1.setBackground(new java.awt.Color(251, 243, 0));
         side_pane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(side_pane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 10, 500));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
-        jLabel17.setText("jLabel17");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 205, 110));
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        lbl_logoazul_restau.setText("jLabel17");
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 205, 110));
 
         jButton_mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Read.png"))); // NOI18N
         jButton_mostrar.setText("Mostrar");
@@ -214,15 +219,15 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 jButton_mostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 110, -1));
+        getContentPane().add(jButton_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 110, -1));
 
         side_pane.setBackground(new java.awt.Color(23, 35, 51));
         side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_1.setBackground(new java.awt.Color(23, 35, 51));
-        btn_1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inicio.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_1MousePressed(evt);
+                btn_inicioMousePressed(evt);
             }
         });
 
@@ -240,32 +245,32 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Inicio");
+        lbl_inicio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio.setText("Inicio");
 
-        javax.swing.GroupLayout btn_1Layout = new javax.swing.GroupLayout(btn_1);
-        btn_1.setLayout(btn_1Layout);
-        btn_1Layout.setHorizontalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_inicioLayout = new javax.swing.GroupLayout(btn_inicio);
+        btn_inicio.setLayout(btn_inicioLayout);
+        btn_inicioLayout.setHorizontalGroup(
+            btn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicioLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(38, 38, 38))
+                .addGap(34, 34, 34)
+                .addComponent(lbl_inicio)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
-        btn_1Layout.setVerticalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        btn_inicioLayout.setVerticalGroup(
+            btn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicioLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_1Layout.createSequentialGroup()
+            .addGroup(btn_inicioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, -1));
+        side_pane.add(btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, -1));
 
         btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -275,10 +280,10 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
         });
         side_pane.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
 
-        btn_11.setBackground(new java.awt.Color(23, 35, 51));
-        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_prove_elim_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_prove_elim_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_11MouseReleased(evt);
+                btn_prove_elim_mesaMouseReleased(evt);
             }
         });
 
@@ -296,37 +301,37 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Proveedores");
+        lbl_proveedores_elim_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_elim_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_proveedores_elim_mesa.setText("Proveedores");
 
-        javax.swing.GroupLayout btn_11Layout = new javax.swing.GroupLayout(btn_11);
-        btn_11.setLayout(btn_11Layout);
-        btn_11Layout.setHorizontalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_prove_elim_mesaLayout = new javax.swing.GroupLayout(btn_prove_elim_mesa);
+        btn_prove_elim_mesa.setLayout(btn_prove_elim_mesaLayout);
+        btn_prove_elim_mesaLayout.setHorizontalGroup(
+            btn_prove_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_elim_mesa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        btn_11Layout.setVerticalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        btn_prove_elim_mesaLayout.setVerticalGroup(
+            btn_prove_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_11Layout.createSequentialGroup()
+            .addGroup(btn_prove_elim_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_proveedores_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 140, -1));
+        side_pane.add(btn_prove_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_datper_elim_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_datper_elim_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_datper_elim_mesaMouseReleased(evt);
             }
         });
 
@@ -344,36 +349,36 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Datos de personal");
+        lbl_dtos_perso_elim_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_elim_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dtos_perso_elim_mesa.setText("Datos de personal");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_datper_elim_mesaLayout = new javax.swing.GroupLayout(btn_datper_elim_mesa);
+        btn_datper_elim_mesa.setLayout(btn_datper_elim_mesaLayout);
+        btn_datper_elim_mesaLayout.setHorizontalGroup(
+            btn_datper_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addComponent(lbl_dtos_perso_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_datper_elim_mesaLayout.setVerticalGroup(
+            btn_datper_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_datper_elim_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_dtos_perso_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+        side_pane.add(btn_datper_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
 
-        btn_4.setBackground(new java.awt.Color(251, 243, 0));
-        btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_admmes_elim_mesa.setBackground(new java.awt.Color(251, 243, 0));
+        btn_admmes_elim_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_4MousePressed(evt);
+                btn_admmes_elim_mesaMousePressed(evt);
             }
         });
 
@@ -391,36 +396,36 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setText("Administrar Mesas");
+        lbl_adm_mesa_elim_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_elim_mesa.setText("Administrar Mesas");
 
-        javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
-        btn_4.setLayout(btn_4Layout);
-        btn_4Layout.setHorizontalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_admmes_elim_mesaLayout = new javax.swing.GroupLayout(btn_admmes_elim_mesa);
+        btn_admmes_elim_mesa.setLayout(btn_admmes_elim_mesaLayout);
+        btn_admmes_elim_mesaLayout.setHorizontalGroup(
+            btn_admmes_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(lbl_adm_mesa_elim_mesa)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        btn_4Layout.setVerticalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        btn_admmes_elim_mesaLayout.setVerticalGroup(
+            btn_admmes_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_4Layout.createSequentialGroup()
+            .addGroup(btn_admmes_elim_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_adm_mesa_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 130, -1));
+        side_pane.add(btn_admmes_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
 
-        btn_3.setBackground(new java.awt.Color(23, 35, 51));
-        btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ingred_elim_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_ingred_elim_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_3MousePressed(evt);
+                btn_ingred_elim_mesaMousePressed(evt);
             }
         });
 
@@ -438,42 +443,138 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ingredientes");
+        lbl_ingre_elim_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_elim_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ingre_elim_mesa.setText("Ingredientes");
 
-        javax.swing.GroupLayout btn_3Layout = new javax.swing.GroupLayout(btn_3);
-        btn_3.setLayout(btn_3Layout);
-        btn_3Layout.setHorizontalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_ingred_elim_mesaLayout = new javax.swing.GroupLayout(btn_ingred_elim_mesa);
+        btn_ingred_elim_mesa.setLayout(btn_ingred_elim_mesaLayout);
+        btn_ingred_elim_mesaLayout.setHorizontalGroup(
+            btn_ingred_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_elim_mesaLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
-        btn_3Layout.setVerticalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
-                .addGroup(btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btn_ingred_elim_mesaLayout.setVerticalGroup(
+            btn_ingred_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_elim_mesaLayout.createSequentialGroup()
+                .addGroup(btn_ingred_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_ingre_elim_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        side_pane.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, 40));
+        side_pane.add(btn_ingred_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
+            }
+        });
+
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        side_pane.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        side_pane.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 140, -1));
 
         getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
 
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        pnl_barra_superior_elim_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior_elim_mesa.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
+                pnl_barra_superior_elim_mesaMouseDragged(evt);
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnl_barra_superior_elim_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                pnl_barra_superior_elim_mesaMousePressed(evt);
             }
         });
 
@@ -487,11 +588,11 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Eliminar Mesas");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_barra_superior_elim_mesaLayout = new javax.swing.GroupLayout(pnl_barra_superior_elim_mesa);
+        pnl_barra_superior_elim_mesa.setLayout(pnl_barra_superior_elim_mesaLayout);
+        pnl_barra_superior_elim_mesaLayout.setHorizontalGroup(
+            pnl_barra_superior_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_elim_mesaLayout.createSequentialGroup()
                 .addContainerGap(351, Short.MAX_VALUE)
                 .addComponent(jLabel26)
                 .addGap(195, 195, 195)
@@ -500,12 +601,12 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnl_barra_superior_elim_mesaLayout.setVerticalGroup(
+            pnl_barra_superior_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_elim_mesaLayout.createSequentialGroup()
                 .addGap(0, 31, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(pnl_barra_superior_elim_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_barra_superior_elim_mesaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -513,55 +614,55 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
+        getContentPane().add(pnl_barra_superior_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
 
-        jButton_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Delete.png"))); // NOI18N
-        jButton_eliminar.setText("Eliminar");
-        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Delete.png"))); // NOI18N
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_eliminarActionPerformed(evt);
+                btn_eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 120, -1));
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 120, -1));
 
         jl_info_rut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jl_info_rut.setForeground(new java.awt.Color(255, 255, 255));
         jl_info_rut.setText("(?)");
-        getContentPane().add(jl_info_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 20, -1));
+        getContentPane().add(jl_info_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 20, -1));
 
-        jButton_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
-        jButton_volver.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_volverActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 500, 80, -1));
+        getContentPane().add(btn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 500, 110, -1));
 
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Numero mesa:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+        lbl_numero_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_numero_mesa.setText("Numero mesa:");
+        getContentPane().add(lbl_numero_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
-        txtrut.addActionListener(new java.awt.event.ActionListener() {
+        txt_numero_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrutActionPerformed(evt);
+                txt_numero_mesaActionPerformed(evt);
             }
         });
-        txtrut.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_numero_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtrutKeyTyped(evt);
+                txt_numero_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 115, -1));
+        getContentPane().add(txt_numero_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 115, -1));
 
-        jButton_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
-        jButton_buscar.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_buscarActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 80, -1));
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 150, 40));
 
-        jTable_mostrar.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_elim_mesa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -572,147 +673,28 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable_mostrar);
+        jScrollPane1.setViewportView(tbl_elim_mesa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 720, 270));
 
-        jLabel1.setBackground(new java.awt.Color(83, 83, 83));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 930, -1));
+        lbl_fondo_interfaz_elim_mesa.setBackground(new java.awt.Color(83, 83, 83));
+        lbl_fondo_interfaz_elim_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_elim_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 930, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    int xx,xy;
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-        // TODO add your handling code here:
-        //drag this pane
-        xx = evt.getX();
-        xy = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
-
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        // TODO add your handling code here:
-        
-        //source to drag
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_jPanel2MouseDragged
-
-    private void btn_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MousePressed
-        // TODO add your handling code here:
-        setColor(btn_1);
-        ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
-        Ventanas_Administracion.Administrar_datos_personal evento = new Ventanas_Administracion.Administrar_datos_personal();
-        evento.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btn_1MousePressed
-
-    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
-        // TODO add your handling code here:
-        int exit = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea salir?");
-        if (JOptionPane.OK_OPTION == exit)
-        {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btn_exitMousePressed
-
-    private void jButton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_volverActionPerformed
-        // TODO add your handling code here:
-        Administrar_Mesas dp = new Administrar_Mesas();
-        dp.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton_volverActionPerformed
-
-    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
-        // TODO add your handling code here:
-
-        int selec;
-        selec = (Integer)this.jTable_mostrar.getSelectedRow();
-
-        if (selec==-1)
-        {
-            JOptionPane.showMessageDialog(this,"No se ha seleccionado ninguna fila");
-        }
-        else
-        {
-
-            int conf = JOptionPane.showConfirmDialog(this,"Esta seguro de eliminar seleccionado?");
-            if (JOptionPane.OK_OPTION == conf) {
-
-                selec = (Integer)this.jTable_mostrar.getSelectedRow();
-                String rut;
-                rut = this.jTable_mostrar.getValueAt(selec, 0).toString();
-                try {
-                    Manejadora.eliminarMesa(conf, rut);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Eliminar_Mesa.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                JOptionPane.showMessageDialog(this,"Registro eliminado");
-                this.txtrut.setText(null);
-                this.txtrut.setText(null);
-            }
-        }
-    }//GEN-LAST:event_jButton_eliminarActionPerformed
-
-    private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
-        // TODO add your handling code here:
-        try
-        {
-            DefaultTableModel modelo= new DefaultTableModel();
-                modelo.addColumn("ID_MESA");
-                modelo.addColumn("Numero Mesa");
-                modelo.addColumn("Capacidad Mesa");
-                modelo.addColumn("Estilo Mesa");
-                modelo.addColumn("Fecha Registro");
-                modelo.addColumn("Estado de mesa");
-            this.jTable_mostrar.setModel(modelo);
-            try {
-                ResultSet rs = Manejadora.buscarMesa(this.txtrut.getText());
-                String [] datos = new String[6];
-                while(rs.next()){
-                    datos[0]=rs.getString(1);
-                    datos[1]=rs.getString(2);
-                    datos[2]=rs.getString(3);
-                    datos[3]=rs.getString(4);
-                    datos[4]=rs.getString(5);
-                    datos[5]=rs.getString(6);
-                    modelo.addRow(datos);
-                    this.jTable_mostrar.setModel(modelo);
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(Personal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, "no se ha ingresado rut");
-        }
-
-    }//GEN-LAST:event_jButton_buscarActionPerformed
-
-    private void txtrutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtrutActionPerformed
-
-    private void txtrutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrutKeyTyped
-        // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txtrutKeyTyped
-
-    private void jButton_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrarActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel modelo= new DefaultTableModel();
+    
+    public void mostrarMesas()
+    {
+         DefaultTableModel modelo= new DefaultTableModel();
         modelo.addColumn("ID_MESA");
         modelo.addColumn("Numero Mesa");
         modelo.addColumn("Capacidad Mesa");
         modelo.addColumn("Estilo Mesa");
         modelo.addColumn("Fecha Registro");
         modelo.addColumn("Estado de mesa");
-        this.jTable_mostrar.setModel(modelo);
+        this.tbl_elim_mesa.setModel(modelo);
 
         try {
             ResultSet rs = Manejadora.mostrarMesa();
@@ -725,49 +707,210 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
                 datos[4]=rs.getString(5);
                 datos[5]=rs.getString(6);
                 modelo.addRow(datos);
-                this.jTable_mostrar.setModel(modelo);
+                this.tbl_elim_mesa.setModel(modelo);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Personal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    int xx,xy;
+    private void pnl_barra_superior_elim_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_elim_mesaMousePressed
+        // TODO add your handling code here:
+        //drag this pane
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_pnl_barra_superior_elim_mesaMousePressed
+
+    private void pnl_barra_superior_elim_mesaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_elim_mesaMouseDragged
+        // TODO add your handling code here:
+        
+        //source to drag
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_pnl_barra_superior_elim_mesaMouseDragged
+
+    private void btn_inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMousePressed
+        // TODO add your handling code here:
+        setColor(btn_inicio);
+        ind_1.setOpaque(true);
+        resetColor(new JPanel[]{btn_datper_elim_mesa,btn_ingred_elim_mesa,btn_admmes_elim_mesa}, new JPanel[]{ind_2,ind_3, ind_4});
+        Menu_principal mp = new Menu_principal();
+        mp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_inicioMousePressed
+
+    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
+        // TODO add your handling code here:
+        int exit = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea salir?");
+        if (JOptionPane.OK_OPTION == exit)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btn_exitMousePressed
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        // TODO add your handling code here:
+        Administrar_Mesas dp = new Administrar_Mesas();
+        dp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+
+        int selec;
+        selec = (Integer)this.tbl_elim_mesa.getSelectedRow();
+
+        if (selec==-1)
+        {
+            JOptionPane.showMessageDialog(this,"No se ha seleccionado ninguna fila");
+        }
+        else
+        {
+
+            int conf = JOptionPane.showConfirmDialog(this,"Esta seguro de eliminar seleccionado?");
+            if (JOptionPane.OK_OPTION == conf) {
+
+                selec = (Integer)this.tbl_elim_mesa.getSelectedRow();
+                String rut;
+                rut = this.tbl_elim_mesa.getValueAt(selec, 0).toString();
+                try {
+                    Manejadora.eliminarMesa(conf, rut);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Eliminar_Mesa.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(this,"Registro eliminado");
+                mostrarMesas();
+                this.txt_numero_mesa.setText(null);
+                this.txt_numero_mesa.setText(null);
+            }
+        }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            DefaultTableModel modelo= new DefaultTableModel();
+                modelo.addColumn("ID_MESA");
+                modelo.addColumn("Numero Mesa");
+                modelo.addColumn("Capacidad Mesa");
+                modelo.addColumn("Estilo Mesa");
+                modelo.addColumn("Fecha Registro");
+                modelo.addColumn("Estado de mesa");
+            this.tbl_elim_mesa.setModel(modelo);
+            try {
+                ResultSet rs = Manejadora.buscarMesa(this.txt_numero_mesa.getText());
+                String [] datos = new String[6];
+                while(rs.next()){
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);
+                    datos[3]=rs.getString(4);
+                    datos[4]=rs.getString(5);
+                    datos[5]=rs.getString(6);
+                    modelo.addRow(datos);
+                    this.tbl_elim_mesa.setModel(modelo);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(Personal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "no se ha ingresado rut");
+        }
+
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void txt_numero_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numero_mesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_numero_mesaActionPerformed
+
+    private void txt_numero_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numero_mesaKeyTyped
+        // TODO add your handling code here:
+        char n = evt.getKeyChar();
+        if( n<'0' || n>'9' )evt.consume();
+    }//GEN-LAST:event_txt_numero_mesaKeyTyped
+
+    private void jButton_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo= new DefaultTableModel();
+        modelo.addColumn("ID_MESA");
+        modelo.addColumn("Numero Mesa");
+        modelo.addColumn("Capacidad Mesa");
+        modelo.addColumn("Estilo Mesa");
+        modelo.addColumn("Fecha Registro");
+        modelo.addColumn("Estado de mesa");
+        this.tbl_elim_mesa.setModel(modelo);
+
+        try {
+            ResultSet rs = Manejadora.mostrarMesa();
+            String [] datos = new String[6];
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                datos[4]=rs.getString(5);
+                datos[5]=rs.getString(6);
+                modelo.addRow(datos);
+                this.tbl_elim_mesa.setModel(modelo);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Personal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton_mostrarActionPerformed
 
-    private void btn_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseReleased
+    private void btn_prove_elim_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prove_elim_mesaMouseReleased
         // TODO add your handling code here:
-        Interfaz_Agregar_Usuario menu = new Interfaz_Agregar_Usuario();
-        menu.setVisible(true);
+        Administrar_Proveedor adm_prove = new Administrar_Proveedor();
+        adm_prove.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_11MouseReleased
+    }//GEN-LAST:event_btn_prove_elim_mesaMouseReleased
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_datper_elim_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datper_elim_mesaMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_datper_elim_mesa);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_3,btn_4}, new JPanel[]{ind_1,ind_3, ind_4});
-        Vista.Menu_Restau dp = new Vista.Menu_Restau();
+        resetColor(new JPanel[]{btn_inicio,btn_ingred_elim_mesa,btn_admmes_elim_mesa}, new JPanel[]{ind_1,ind_3, ind_4});
+        Administrar_datos_personal dp = new Administrar_datos_personal();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_2MouseReleased
+    }//GEN-LAST:event_btn_datper_elim_mesaMouseReleased
 
-    private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
+    private void btn_admmes_elim_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_admmes_elim_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_4);
+        setColor(btn_admmes_elim_mesa);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_1}, new JPanel[]{ind_2,ind_3, ind_1});
-        Vista.Menu_Restau stock = new Vista.Menu_Restau();
-        stock.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_elim_mesa,btn_ingred_elim_mesa,btn_inicio}, new JPanel[]{ind_2,ind_3, ind_1});
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_4MousePressed
+    }//GEN-LAST:event_btn_admmes_elim_mesaMousePressed
 
-    private void btn_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MousePressed
+    private void btn_ingred_elim_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingred_elim_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_3);
+        setColor(btn_ingred_elim_mesa);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_4}, new JPanel[]{ind_2,ind_1, ind_4});
-        Ventanas_Administracion.Ventana_administracion_ingrediente evento = new Ventanas_Administracion.Ventana_administracion_ingrediente();
-        evento.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_elim_mesa,btn_inicio,btn_admmes_elim_mesa}, new JPanel[]{ind_2,ind_1, ind_4});
+     interfaz_Ingrediente adm_ingre = new interfaz_Ingrediente();
+        adm_ingre.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_3MousePressed
+    }//GEN-LAST:event_btn_ingred_elim_mesaMousePressed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        interfaz_Recetario adm_ingre = new interfaz_Recetario();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
 
     /**
      * @param args the command line arguments
@@ -802,37 +945,42 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_11;
-    private javax.swing.JPanel btn_2;
-    private javax.swing.JPanel btn_3;
-    private javax.swing.JPanel btn_4;
+    private javax.swing.JPanel btn_admmes_elim_mesa;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JPanel btn_datper_elim_mesa;
+    private javax.swing.JButton btn_eliminar;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel btn_ingred_elim_mesa;
+    private javax.swing.JPanel btn_inicio;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JPanel btn_prove_elim_mesa;
+    private javax.swing.JPanel btn_recetario;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
-    private javax.swing.JButton jButton_buscar;
-    private javax.swing.JButton jButton_eliminar;
     private javax.swing.JButton jButton_mostrar;
-    private javax.swing.JButton jButton_volver;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_mostrar;
     private javax.swing.JLabel jl_info_rut;
+    private javax.swing.JLabel lbl_adm_mesa_elim_mesa;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_elim_mesa;
+    private javax.swing.JLabel lbl_fondo_interfaz_elim_mesa;
+    private javax.swing.JLabel lbl_ingre_elim_mesa;
+    private javax.swing.JLabel lbl_inicio;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_numero_mesa;
+    private javax.swing.JLabel lbl_proveedores_elim_mesa;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JPanel pnl_barra_superior_elim_mesa;
     private javax.swing.JPanel side_pane;
     private javax.swing.JPanel side_pane1;
     private javax.swing.JPanel side_pane3;
@@ -840,7 +988,7 @@ public class Eliminar_Mesa extends javax.swing.JFrame {
     private javax.swing.JPanel side_pane5;
     private javax.swing.JPanel side_pane6;
     private javax.swing.JPanel side_pane7;
-    private javax.swing.JPanel side_pane8;
-    private javax.swing.JTextField txtrut;
+    private javax.swing.JTable tbl_elim_mesa;
+    private javax.swing.JTextField txt_numero_mesa;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e1843fc-ec36-41b9-80e0-9deb6dacbf89">
+	<property name="ireport.zoom" value="1.4641000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM PROVEEDOR ORDER BY TIPO_PROVEEDOR ASC]]>
+	</queryString>
+	<field name="ID_PROVEEDOR" class="java.math.BigDecimal"/>
+	<field name="NOMBRE_PROVEEDOR" class="java.lang.String"/>
+	<field name="TELEFONO_PROVEEDOR" class="java.math.BigDecimal"/>
+	<field name="DIRECCION_PROVEEDOR" class="java.lang.String"/>
+	<field name="DESCRIPCION_PROVEEDOR" class="java.lang.String"/>
+	<field name="EMAIL_PROVEEDOR" class="java.lang.String"/>
+	<field name="TIPO_PROVEEDOR" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<image>
+				<reportElement x="327" y="3" width="200" height="60" uuid="0a0133fc-0905-4cab-9128-ae98a06f0047"/>
+				<imageExpression><![CDATA["C:\\Users\\the_t\\Desktop\\PORTAFOLIO DE TITULO\\PORTAFOLIO RESTAU\\JAVA 2.0\\ResTAU\\src\\Imagenes\\logo_superior_blanco_jpg.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="635" y="0" width="100" height="20" uuid="cd1cb3be-697a-4a11-bc44-a0bd2e994458"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="327" y="0" width="195" height="20" uuid="95563c85-3957-4341-9b22-dc274430b7e9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO DE PROVEEDORES]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="22" height="20" uuid="4e1582a3-0ce4-4c65-8288-8e89fd8cd959"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="0" width="166" height="20" uuid="da5839f9-b7c9-4300-8a78-5a24749cb312"/>
+				<text><![CDATA[Nombre Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="0" width="94" height="20" uuid="33d6ff3f-17ea-42f1-879a-da1b8a0cee67"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="113" height="20" uuid="0b17591f-fe56-4349-b0c5-a00273805aff"/>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="0" width="116" height="20" uuid="d697cfd7-cdf4-49b1-81eb-ad1946085404"/>
+				<text><![CDATA[Descripcion Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="547" y="0" width="138" height="20" uuid="fc9f9dfe-bb68-4036-8c31-1d8b716a3609"/>
+				<text><![CDATA[Emaiil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="691" y="2" width="111" height="20" uuid="1578e74c-1185-4699-ae4d-e7af34436e24"/>
+				<text><![CDATA[Tipo de proveedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="22" height="20" uuid="cbbb9374-4d9b-436f-aa86-a48f069a7773"/>
+				<textFieldExpression><![CDATA[$F{ID_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="0" width="166" height="20" uuid="92d5e385-8974-4434-9dce-acf3cc431421"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="0" width="94" height="20" uuid="191e11b6-ce58-4c1e-8513-18585b0d72cc"/>
+				<textFieldExpression><![CDATA[$F{TELEFONO_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="2" width="113" height="20" uuid="1ccd8b1f-9bce-49ac-aee1-d9a30c6083c6"/>
+				<textFieldExpression><![CDATA[$F{DIRECCION_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="116" height="20" uuid="1168360f-e835-425e-941f-59b6acdce789"/>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="0" width="138" height="20" uuid="f9f6e9a5-a9d7-4e08-8395-0575977d23ed"/>
+				<textFieldExpression><![CDATA[$F{EMAIL_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="693" y="2" width="109" height="20" uuid="93849051-8ce8-49e9-a87c-32ad4e0d0848"/>
+				<textFieldExpression><![CDATA[$F{TIPO_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="74" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="447" y="0" width="100" height="20" uuid="ed566615-2d09-4fe3-b081-620afc592ec6"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="0" width="80" height="20" uuid="377f55f6-1dcb-442d-b60a-3878f64cfdfc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina:"+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="309" y="0" width="40" height="20" uuid="4223e119-a724-4f9f-99ff-c28049e905a0"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="76" splitType="Stretch"/>
+	</summary>
+</jasperReport>

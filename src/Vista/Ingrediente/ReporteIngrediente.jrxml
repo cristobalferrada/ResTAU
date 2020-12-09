@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95fb4f37-06a7-460b-a55a-4995790285df">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from INGREDIENTE order by tipo_ingrediente ASC]]>
+	</queryString>
+	<field name="ID_INGREDIENTE" class="java.math.BigDecimal"/>
+	<field name="NOMBRE_INGREDIENTE" class="java.lang.String"/>
+	<field name="TIPO_INGREDIENTE" class="java.lang.String"/>
+	<field name="CANTIDAD_INGREDIENTE" class="java.lang.String"/>
+	<field name="UNIDAD_MEDIDA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="188" y="0" width="200" height="79" uuid="167c17e4-9f3d-405c-b855-4561e5609739"/>
+				<imageExpression><![CDATA["C:\\Users\\the_t\\Downloads\\java portafolio\\ResTAU\\src\\Imagenes\\logo_superior_blanco_jpg.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="406" y="0" width="138" height="20" uuid="5cfbd9c3-0a26-4f08-9340-6ddbecffa548"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="0" width="322" height="32" uuid="dc612ce4-de47-4a72-8ff2-6aafd1473f78"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado de Ingredientes Stock]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="44" height="20" uuid="dac9ee1a-1762-4393-b620-0b8c169d537b"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="2" width="262" height="20" uuid="671927f7-456f-475f-8261-8eac7ade7c0c"/>
+				<text><![CDATA[Ingrediente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="2" width="100" height="20" uuid="6c0caf69-21c4-4350-9cac-5a00f6023d3b"/>
+				<text><![CDATA[Grupo Ingrediente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="2" width="59" height="20" uuid="8adf6abf-6dee-492e-83eb-334c33cc211f"/>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="2" width="90" height="20" uuid="0de208c5-5022-438c-9869-35af0f691cb0"/>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="9a4f4c7e-7f2c-478e-973a-9a151f0905b8"/>
+				<textFieldExpression><![CDATA[$F{ID_INGREDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="0" width="262" height="20" uuid="153eca7a-56db-4313-bbb8-6f21d54c56a9"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_INGREDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="0" width="100" height="20" uuid="06e8dd6a-51cd-43bf-a467-17fce8baecc5"/>
+				<textFieldExpression><![CDATA[$F{TIPO_INGREDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="59" height="20" uuid="1a659beb-f9cc-4ac9-a6a1-70982d7d4293"/>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_INGREDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="100" height="20" uuid="0ef58081-3076-4d77-82cb-7976a0176bd4"/>
+				<textFieldExpression><![CDATA[$F{UNIDAD_MEDIDA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="56" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="232" y="34" width="100" height="20" uuid="f90aca38-f9f5-4756-8954-d0ed9cdae823"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="424" y="22" width="80" height="20" uuid="94889f15-3dfb-45e7-8b84-f62cdcfe3967"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="504" y="22" width="40" height="20" uuid="81c7c584-e775-4b2e-9b8b-81567727ec49"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

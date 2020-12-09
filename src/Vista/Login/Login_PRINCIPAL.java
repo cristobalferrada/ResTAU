@@ -158,7 +158,7 @@ public class Login_PRINCIPAL extends javax.swing.JFrame {
         jCheckBox1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(153, 153, 153));
         jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Recordarme");
+        jCheckBox1.setText("Recuerdame");
         jCheckBox1.setBorder(null);
         jCheckBox1.setContentAreaFilled(false);
         jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -222,7 +222,7 @@ public class Login_PRINCIPAL extends javax.swing.JFrame {
                     .addGroup(panelImage6Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -258,8 +258,9 @@ public class Login_PRINCIPAL extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelImage6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,12 +282,12 @@ public class Login_PRINCIPAL extends javax.swing.JFrame {
             rs = (OracleResultSet) pst.executeQuery();
             if(rs.next())
             {
-                JOptionPane.showMessageDialog(null, "Bienvenido al backOffice de ResTAU", "Iniciado", 1);
+                JOptionPane.showMessageDialog(null, "!Bienvenido al BackOffice de ResTAU!", "Iniciado", 1);
                 Menu_principal vm = new Menu_principal();
                 vm.setVisible(true);
                 this.setVisible(false);
             }else{
-                JOptionPane.showMessageDialog(null, "denegado");
+                JOptionPane.showMessageDialog(null, "Credenciales Incorrectas");
             }
                 
         }catch (Exception e)

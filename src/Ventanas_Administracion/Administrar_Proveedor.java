@@ -11,6 +11,11 @@ import Vista.proveedor.Agregar_Proveedor;
 import Vista.proveedor.Eliminar_Proveedor;
 import Vista.proveedor.Modificar_Proveedor;
 import Vista.proveedor.Mostrar_Proveedor;
+import Ventanas_Administracion.Administrar_datos_personal;
+import Vista.Factura.Interfaz_Factura;
+import Vista.Ingrediente.interfaz_Ingrediente;
+import Vista.Recetario.interfaz_Recetario;
+
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -40,49 +45,56 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel26 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        side_pane1 = new javax.swing.JPanel();
-        side_pane = new javax.swing.JPanel();
-        btn_1 = new javax.swing.JPanel();
+        lbl_ico_elim_provee = new javax.swing.JLabel();
+        lbl_ico_mod_provee = new javax.swing.JLabel();
+        lbl_ico_agr_provee = new javax.swing.JLabel();
+        lbl_logoazul_restau = new javax.swing.JLabel();
+        lbl_mod_provee = new javax.swing.JLabel();
+        lbl_agr_provee = new javax.swing.JLabel();
+        lbl_somb_agre_provee = new javax.swing.JLabel();
+        lbl_ico_mos_provee = new javax.swing.JLabel();
+        lbl_somb_mod_provee = new javax.swing.JLabel();
+        lbl_mos_provee = new javax.swing.JLabel();
+        lbl_somb_mos_provee = new javax.swing.JLabel();
+        lbl_logorojo_restau = new javax.swing.JLabel();
+        lbl_elm_provee = new javax.swing.JLabel();
+        lbl_somb_elm_provee = new javax.swing.JLabel();
+        pnl_barra_amarilla_provee = new javax.swing.JPanel();
+        pnl_barra_lateral_provee = new javax.swing.JPanel();
+        btn_inicio_adm_provee = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        btn_exit = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
-        ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_3 = new javax.swing.JPanel();
+        lbl_inicio_adm_provee = new javax.swing.JLabel();
+        btn_ingred_adm_provee = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        btn_4 = new javax.swing.JPanel();
+        lbl_ingre_adm_provee = new javax.swing.JLabel();
+        btn_adm_mesa_adm_provee = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btn_11 = new javax.swing.JPanel();
+        lbl_adm_mesa_adm_provee = new javax.swing.JLabel();
+        btn_dtosper_adm_provee = new javax.swing.JPanel();
+        ind_2 = new javax.swing.JPanel();
+        lbl_dtos_perso_adm_provee = new javax.swing.JLabel();
+        btn_provee_adm_provee = new javax.swing.JPanel();
         ind_11 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        lbl_proveedores_adm_prove = new javax.swing.JLabel();
+        btn_exit = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        pnl_barra_superior_provee = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btn_7 = new javax.swing.JPanel();
+        lbl_titulo_adm_prove = new javax.swing.JLabel();
+        lbl_fondo_interfaz_provee = new javax.swing.JLabel();
+        btn_Agregar_provee = new javax.swing.JPanel();
         ind_7 = new javax.swing.JPanel();
-        btn_8 = new javax.swing.JPanel();
+        btn_Modificar_provee = new javax.swing.JPanel();
         ind_8 = new javax.swing.JPanel();
-        btn_9 = new javax.swing.JPanel();
+        btn_Mostrar_provee = new javax.swing.JPanel();
         ind_9 = new javax.swing.JPanel();
-        btn_10 = new javax.swing.JPanel();
+        btn_Eliminar_provee = new javax.swing.JPanel();
         ind_10 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,66 +103,65 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("ADMINISTRAR PROVEEDORES");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+        lbl_ico_elim_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-eliminar-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_elim_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-eliminar-64.png"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, -1, -1));
+        lbl_ico_mod_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-editar-propiedad-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_mod_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 70, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-editar-propiedad-64.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 70, -1));
+        lbl_ico_agr_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-añadir-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_agr_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-añadir-64.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        lbl_logoazul_restau.setText("jLabel17");
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 205, 80));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
-        jLabel17.setText("jLabel17");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 205, 80));
+        lbl_mod_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_mod_provee.setText("Modificar Proveedor");
+        getContentPane().add(lbl_mod_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 120, 20));
 
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Modificar Proveedor");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 110, -1));
+        lbl_agr_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_agr_provee.setText("Agregar Proveedor");
+        getContentPane().add(lbl_agr_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 130, -1));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Agregar Proveedor");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+        lbl_somb_agre_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_agre_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 100, -1));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 100, -1));
+        lbl_ico_mos_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-mostrar-propiedad-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_mos_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-mostrar-propiedad-64.png"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        lbl_somb_mod_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_mod_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 100, -1));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 100, -1));
+        lbl_mos_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_mos_provee.setText("Mostrar Proveedores");
+        getContentPane().add(lbl_mos_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 110, 20));
 
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Mostrar Proveedores");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 120, -1));
+        lbl_somb_mos_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_mos_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 100, -1));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 100, -1));
+        lbl_logorojo_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
+        lbl_logorojo_restau.setText("jLabel17");
+        getContentPane().add(lbl_logorojo_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 260, 320));
 
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Eliminar Proveedores");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 100, -1));
+        lbl_elm_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_elm_provee.setText("Eliminar Proveedores");
+        getContentPane().add(lbl_elm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 100, 20));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 100, -1));
+        lbl_somb_elm_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_elm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 100, -1));
 
-        side_pane1.setBackground(new java.awt.Color(251, 243, 0));
-        side_pane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(side_pane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 10, 500));
+        pnl_barra_amarilla_provee.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla_provee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 10, 500));
 
-        side_pane.setBackground(new java.awt.Color(23, 35, 51));
-        side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_barra_lateral_provee.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_lateral_provee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_1.setBackground(new java.awt.Color(23, 35, 51));
-        btn_1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inicio_adm_provee.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio_adm_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_1MousePressed(evt);
+                btn_inicio_adm_proveeMousePressed(evt);
             }
         });
 
@@ -168,92 +179,37 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Inicio");
+        lbl_inicio_adm_provee.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio_adm_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_adm_provee.setText("Inicio");
 
-        javax.swing.GroupLayout btn_1Layout = new javax.swing.GroupLayout(btn_1);
-        btn_1.setLayout(btn_1Layout);
-        btn_1Layout.setHorizontalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_inicio_adm_proveeLayout = new javax.swing.GroupLayout(btn_inicio_adm_provee);
+        btn_inicio_adm_provee.setLayout(btn_inicio_adm_proveeLayout);
+        btn_inicio_adm_proveeLayout.setHorizontalGroup(
+            btn_inicio_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lbl_inicio_adm_provee)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        btn_1Layout.setVerticalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        btn_inicio_adm_proveeLayout.setVerticalGroup(
+            btn_inicio_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_1Layout.createSequentialGroup()
+            .addGroup(btn_inicio_adm_proveeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_inicio_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, -1));
+        pnl_barra_lateral_provee.add(btn_inicio_adm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, -1));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
-        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ingred_adm_provee.setBackground(new java.awt.Color(23, 35, 51));
+        btn_ingred_adm_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_exitMousePressed(evt);
-            }
-        });
-        side_pane.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
-
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
-            }
-        });
-
-        ind_2.setOpaque(false);
-        ind_2.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout ind_2Layout = new javax.swing.GroupLayout(ind_2);
-        ind_2.setLayout(ind_2Layout);
-        ind_2Layout.setHorizontalGroup(
-            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        ind_2Layout.setVerticalGroup(
-            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Datos de personal");
-
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
-                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
-        );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
-                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
-
-        btn_3.setBackground(new java.awt.Color(23, 35, 51));
-        btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_3MousePressed(evt);
+                btn_ingred_adm_proveeMousePressed(evt);
             }
         });
 
@@ -271,35 +227,35 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ingredientes");
+        lbl_ingre_adm_provee.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_adm_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ingre_adm_provee.setText("Ingredientes");
 
-        javax.swing.GroupLayout btn_3Layout = new javax.swing.GroupLayout(btn_3);
-        btn_3.setLayout(btn_3Layout);
-        btn_3Layout.setHorizontalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_ingred_adm_proveeLayout = new javax.swing.GroupLayout(btn_ingred_adm_provee);
+        btn_ingred_adm_provee.setLayout(btn_ingred_adm_proveeLayout);
+        btn_ingred_adm_proveeLayout.setHorizontalGroup(
+            btn_ingred_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
-        btn_3Layout.setVerticalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
-                .addGroup(btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btn_ingred_adm_proveeLayout.setVerticalGroup(
+            btn_ingred_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_proveeLayout.createSequentialGroup()
+                .addGroup(btn_ingred_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_ingre_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        side_pane.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
+        pnl_barra_lateral_provee.add(btn_ingred_adm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
 
-        btn_4.setBackground(new java.awt.Color(23, 35, 51));
-        btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_adm_mesa_adm_provee.setBackground(new java.awt.Color(23, 35, 51));
+        btn_adm_mesa_adm_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_4MousePressed(evt);
+                btn_adm_mesa_adm_proveeMousePressed(evt);
             }
         });
 
@@ -317,37 +273,84 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Administrar Mesas");
+        lbl_adm_mesa_adm_provee.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_adm_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_adm_mesa_adm_provee.setText("Administrar Mesas");
 
-        javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
-        btn_4.setLayout(btn_4Layout);
-        btn_4Layout.setHorizontalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_adm_mesa_adm_proveeLayout = new javax.swing.GroupLayout(btn_adm_mesa_adm_provee);
+        btn_adm_mesa_adm_provee.setLayout(btn_adm_mesa_adm_proveeLayout);
+        btn_adm_mesa_adm_proveeLayout.setHorizontalGroup(
+            btn_adm_mesa_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_adm_mesa_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(lbl_adm_mesa_adm_provee)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        btn_4Layout.setVerticalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        btn_adm_mesa_adm_proveeLayout.setVerticalGroup(
+            btn_adm_mesa_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_adm_mesa_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_4Layout.createSequentialGroup()
+            .addGroup(btn_adm_mesa_adm_proveeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_adm_mesa_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
+        pnl_barra_lateral_provee.add(btn_adm_mesa_adm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
 
-        btn_11.setBackground(new java.awt.Color(251, 243, 0));
-        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_dtosper_adm_provee.setBackground(new java.awt.Color(23, 35, 51));
+        btn_dtosper_adm_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_11MouseReleased(evt);
+                btn_dtosper_adm_proveeMouseReleased(evt);
+            }
+        });
+
+        ind_2.setOpaque(false);
+        ind_2.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_2Layout = new javax.swing.GroupLayout(ind_2);
+        ind_2.setLayout(ind_2Layout);
+        ind_2Layout.setHorizontalGroup(
+            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_2Layout.setVerticalGroup(
+            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_dtos_perso_adm_provee.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_adm_provee.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dtos_perso_adm_provee.setText("Datos de personal");
+
+        javax.swing.GroupLayout btn_dtosper_adm_proveeLayout = new javax.swing.GroupLayout(btn_dtosper_adm_provee);
+        btn_dtosper_adm_provee.setLayout(btn_dtosper_adm_proveeLayout);
+        btn_dtosper_adm_proveeLayout.setHorizontalGroup(
+            btn_dtosper_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_dtosper_adm_proveeLayout.createSequentialGroup()
+                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_dtos_perso_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+        );
+        btn_dtosper_adm_proveeLayout.setVerticalGroup(
+            btn_dtosper_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_dtosper_adm_proveeLayout.createSequentialGroup()
+                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_dtosper_adm_proveeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_dtos_perso_adm_provee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_provee.add(btn_dtosper_adm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
+
+        btn_provee_adm_provee.setBackground(new java.awt.Color(251, 243, 0));
+        btn_provee_adm_provee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_provee_adm_proveeMouseReleased(evt);
             }
         });
 
@@ -365,43 +368,147 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel20.setText("Proveedores");
+        lbl_proveedores_adm_prove.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_adm_prove.setText("Proveedores");
 
-        javax.swing.GroupLayout btn_11Layout = new javax.swing.GroupLayout(btn_11);
-        btn_11.setLayout(btn_11Layout);
-        btn_11Layout.setHorizontalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_provee_adm_proveeLayout = new javax.swing.GroupLayout(btn_provee_adm_provee);
+        btn_provee_adm_provee.setLayout(btn_provee_adm_proveeLayout);
+        btn_provee_adm_proveeLayout.setHorizontalGroup(
+            btn_provee_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_provee_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_adm_prove, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        btn_11Layout.setVerticalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        btn_provee_adm_proveeLayout.setVerticalGroup(
+            btn_provee_adm_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_provee_adm_proveeLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_11Layout.createSequentialGroup()
+            .addGroup(btn_provee_adm_proveeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_proveedores_adm_prove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
+        pnl_barra_lateral_provee.add(btn_provee_adm_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
 
-        getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
-
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
+        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_exitMousePressed(evt);
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnl_barra_lateral_provee.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
+            }
+        });
+
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_provee.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_provee.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, -1));
+
+        getContentPane().add(pnl_barra_lateral_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
+
+        pnl_barra_superior_provee.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior_provee.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_barra_superior_proveeMouseDragged(evt);
+            }
+        });
+        pnl_barra_superior_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                pnl_barra_superior_proveeMousePressed(evt);
             }
         });
 
@@ -411,35 +518,45 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_User_48px.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(750, Short.MAX_VALUE)
+        lbl_titulo_adm_prove.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_titulo_adm_prove.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_titulo_adm_prove.setText("ADMINISTRAR PROVEEDORES");
+
+        javax.swing.GroupLayout pnl_barra_superior_proveeLayout = new javax.swing.GroupLayout(pnl_barra_superior_provee);
+        pnl_barra_superior_provee.setLayout(pnl_barra_superior_proveeLayout);
+        pnl_barra_superior_proveeLayout.setHorizontalGroup(
+            pnl_barra_superior_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_proveeLayout.createSequentialGroup()
+                .addContainerGap(245, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_adm_prove)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        pnl_barra_superior_proveeLayout.setVerticalGroup(
+            pnl_barra_superior_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_proveeLayout.createSequentialGroup()
                 .addGap(0, 42, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnl_barra_superior_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_proveeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_adm_prove)
+                .addGap(27, 27, 27))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
+        getContentPane().add(pnl_barra_superior_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, 500));
+        lbl_fondo_interfaz_provee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, 500));
 
-        btn_7.setBackground(new java.awt.Color(26, 146, 167));
-        btn_7.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Agregar_provee.setBackground(new java.awt.Color(26, 146, 167));
+        btn_Agregar_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_7MousePressed(evt);
+                btn_Agregar_proveeMousePressed(evt);
             }
         });
 
@@ -457,27 +574,27 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_7Layout = new javax.swing.GroupLayout(btn_7);
-        btn_7.setLayout(btn_7Layout);
-        btn_7Layout.setHorizontalGroup(
-            btn_7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_7Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_Agregar_proveeLayout = new javax.swing.GroupLayout(btn_Agregar_provee);
+        btn_Agregar_provee.setLayout(btn_Agregar_proveeLayout);
+        btn_Agregar_proveeLayout.setHorizontalGroup(
+            btn_Agregar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Agregar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
-        btn_7Layout.setVerticalGroup(
-            btn_7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_7Layout.createSequentialGroup()
+        btn_Agregar_proveeLayout.setVerticalGroup(
+            btn_Agregar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Agregar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 100, 70));
+        getContentPane().add(btn_Agregar_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 110, 80));
 
-        btn_8.setBackground(new java.awt.Color(26, 146, 167));
-        btn_8.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Modificar_provee.setBackground(new java.awt.Color(26, 146, 167));
+        btn_Modificar_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_8MousePressed(evt);
+                btn_Modificar_proveeMousePressed(evt);
             }
         });
 
@@ -495,27 +612,27 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_8Layout = new javax.swing.GroupLayout(btn_8);
-        btn_8.setLayout(btn_8Layout);
-        btn_8Layout.setHorizontalGroup(
-            btn_8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_8Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_Modificar_proveeLayout = new javax.swing.GroupLayout(btn_Modificar_provee);
+        btn_Modificar_provee.setLayout(btn_Modificar_proveeLayout);
+        btn_Modificar_proveeLayout.setHorizontalGroup(
+            btn_Modificar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Modificar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
-        btn_8Layout.setVerticalGroup(
-            btn_8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_8Layout.createSequentialGroup()
+        btn_Modificar_proveeLayout.setVerticalGroup(
+            btn_Modificar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Modificar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 110, 70));
+        getContentPane().add(btn_Modificar_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 100, 80));
 
-        btn_9.setBackground(new java.awt.Color(26, 146, 167));
-        btn_9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Mostrar_provee.setBackground(new java.awt.Color(26, 146, 167));
+        btn_Mostrar_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_9MousePressed(evt);
+                btn_Mostrar_proveeMousePressed(evt);
             }
         });
 
@@ -533,27 +650,27 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_9Layout = new javax.swing.GroupLayout(btn_9);
-        btn_9.setLayout(btn_9Layout);
-        btn_9Layout.setHorizontalGroup(
-            btn_9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_9Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_Mostrar_proveeLayout = new javax.swing.GroupLayout(btn_Mostrar_provee);
+        btn_Mostrar_provee.setLayout(btn_Mostrar_proveeLayout);
+        btn_Mostrar_proveeLayout.setHorizontalGroup(
+            btn_Mostrar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Mostrar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
-        btn_9Layout.setVerticalGroup(
-            btn_9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_9Layout.createSequentialGroup()
+        btn_Mostrar_proveeLayout.setVerticalGroup(
+            btn_Mostrar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Mostrar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, -1));
+        getContentPane().add(btn_Mostrar_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 110, 80));
 
-        btn_10.setBackground(new java.awt.Color(26, 146, 167));
-        btn_10.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Eliminar_provee.setBackground(new java.awt.Color(26, 146, 167));
+        btn_Eliminar_provee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_10MousePressed(evt);
+                btn_Eliminar_proveeMousePressed(evt);
             }
         });
 
@@ -571,43 +688,43 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_10Layout = new javax.swing.GroupLayout(btn_10);
-        btn_10.setLayout(btn_10Layout);
-        btn_10Layout.setHorizontalGroup(
-            btn_10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_10Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_Eliminar_proveeLayout = new javax.swing.GroupLayout(btn_Eliminar_provee);
+        btn_Eliminar_provee.setLayout(btn_Eliminar_proveeLayout);
+        btn_Eliminar_proveeLayout.setHorizontalGroup(
+            btn_Eliminar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Eliminar_proveeLayout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(ind_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        btn_10Layout.setVerticalGroup(
-            btn_10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_10Layout.createSequentialGroup()
+        btn_Eliminar_proveeLayout.setVerticalGroup(
+            btn_Eliminar_proveeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_Eliminar_proveeLayout.createSequentialGroup()
                 .addComponent(ind_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 90, 70));
+        getContentPane().add(btn_Eliminar_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 100, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     int xx,xy;
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void pnl_barra_superior_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_proveeMousePressed
         // TODO add your handling code here:
         //drag this pane
         xx = evt.getX();
         xy = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }//GEN-LAST:event_pnl_barra_superior_proveeMousePressed
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void pnl_barra_superior_proveeMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_proveeMouseDragged
         // TODO add your handling code here:
         
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }//GEN-LAST:event_pnl_barra_superior_proveeMouseDragged
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
         // TODO add your handling code here:
@@ -618,76 +735,88 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_exitMousePressed
 
-    private void btn_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_7MousePressed
+    private void btn_Agregar_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Agregar_proveeMousePressed
         // TODO add your handling code here:
         Agregar_Proveedor ap = new Agregar_Proveedor();
         ap.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_7MousePressed
+    }//GEN-LAST:event_btn_Agregar_proveeMousePressed
 
-    private void btn_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_8MousePressed
+    private void btn_Modificar_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Modificar_proveeMousePressed
        
         Modificar_Proveedor mp = new Modificar_Proveedor();
         mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_8MousePressed
+    }//GEN-LAST:event_btn_Modificar_proveeMousePressed
 
-    private void btn_9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_9MousePressed
+    private void btn_Mostrar_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Mostrar_proveeMousePressed
         Mostrar_Proveedor mp = new Mostrar_Proveedor();
         mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_9MousePressed
+    }//GEN-LAST:event_btn_Mostrar_proveeMousePressed
 
-    private void btn_10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_10MousePressed
-      Interfaz_Eliminar_Usuario ep = new  Interfaz_Eliminar_Usuario();
+    private void btn_Eliminar_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Eliminar_proveeMousePressed
+      Eliminar_Proveedor ep = new  Eliminar_Proveedor();
         ep.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_10MousePressed
+    }//GEN-LAST:event_btn_Eliminar_proveeMousePressed
 
-    private void btn_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseReleased
+    private void btn_provee_adm_proveeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_provee_adm_proveeMouseReleased
         // TODO add your handling code here:
-        Eliminar_Proveedor menu = new Eliminar_Proveedor();
-        menu.setVisible(true);
+        Administrar_Proveedor ap = new Administrar_Proveedor();
+        ap.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_11MouseReleased
+    }//GEN-LAST:event_btn_provee_adm_proveeMouseReleased
 
-    private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
+    private void btn_adm_mesa_adm_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adm_mesa_adm_proveeMousePressed
         // TODO add your handling code here:
-        setColor(btn_4);
+        setColor(btn_adm_mesa_adm_provee);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_1}, new JPanel[]{ind_2,ind_3, ind_1});
-        Vista.Menu_Restau stock = new Vista.Menu_Restau();
-        stock.setVisible(true);
+        resetColor(new JPanel[]{btn_dtosper_adm_provee,btn_ingred_adm_provee,btn_inicio_adm_provee}, new JPanel[]{ind_2,ind_3, ind_1});
+        Ventanas_Administracion.Administrar_Mesas adm_mesa = new Ventanas_Administracion.Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_4MousePressed
+    }//GEN-LAST:event_btn_adm_mesa_adm_proveeMousePressed
 
-    private void btn_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MousePressed
+    private void btn_ingred_adm_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingred_adm_proveeMousePressed
         // TODO add your handling code here:
-        setColor(btn_3);
+        setColor(btn_ingred_adm_provee);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_4}, new JPanel[]{ind_2,ind_1, ind_4});
-        Ventanas_Administracion.Ventana_administracion_ingrediente evento = new Ventanas_Administracion.Ventana_administracion_ingrediente();
-        evento.setVisible(true);
+        resetColor(new JPanel[]{btn_dtosper_adm_provee,btn_inicio_adm_provee,btn_adm_mesa_adm_provee}, new JPanel[]{ind_2,ind_1, ind_4});
+       interfaz_Ingrediente adm_ingre = new interfaz_Ingrediente();
+        adm_ingre.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_3MousePressed
+    }//GEN-LAST:event_btn_ingred_adm_proveeMousePressed
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_dtosper_adm_proveeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dtosper_adm_proveeMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_dtosper_adm_provee);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_3,btn_4}, new JPanel[]{ind_1,ind_3, ind_4});
-        Vista.Menu_Restau dp = new Vista.Menu_Restau();
+        resetColor(new JPanel[]{btn_inicio_adm_provee,btn_ingred_adm_provee,btn_adm_mesa_adm_provee}, new JPanel[]{ind_1,ind_3, ind_4});
+        Administrar_datos_personal dp = new Administrar_datos_personal();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_2MouseReleased
+    }//GEN-LAST:event_btn_dtosper_adm_proveeMouseReleased
 
-    private void btn_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MousePressed
+    private void btn_inicio_adm_proveeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_adm_proveeMousePressed
         // TODO add your handling code here:
 
-        Menu_principal evento = new Menu_principal();
-        evento.setVisible(true);
+        Menu_principal menu_principal = new Menu_principal();
+        menu_principal.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_1MousePressed
+    }//GEN-LAST:event_btn_inicio_adm_proveeMousePressed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        interfaz_Recetario adm_ingre = new interfaz_Recetario();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
 
     /**
      * @param args the command line arguments
@@ -715,68 +844,7 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Administrar_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
         //</editor-fold>
 
         /* Create and display the form */
@@ -806,49 +874,56 @@ public class Administrar_Proveedor extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_10;
-    private javax.swing.JPanel btn_11;
-    private javax.swing.JPanel btn_2;
-    private javax.swing.JPanel btn_3;
-    private javax.swing.JPanel btn_4;
-    private javax.swing.JPanel btn_7;
-    private javax.swing.JPanel btn_8;
-    private javax.swing.JPanel btn_9;
+    private javax.swing.JPanel btn_Agregar_provee;
+    private javax.swing.JPanel btn_Eliminar_provee;
+    private javax.swing.JPanel btn_Modificar_provee;
+    private javax.swing.JPanel btn_Mostrar_provee;
+    private javax.swing.JPanel btn_adm_mesa_adm_provee;
+    private javax.swing.JPanel btn_dtosper_adm_provee;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel btn_ingred_adm_provee;
+    private javax.swing.JPanel btn_inicio_adm_provee;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JPanel btn_provee_adm_provee;
+    private javax.swing.JPanel btn_recetario;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_10;
     private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_7;
     private javax.swing.JPanel ind_8;
     private javax.swing.JPanel ind_9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel side_pane;
-    private javax.swing.JPanel side_pane1;
+    private javax.swing.JLabel lbl_adm_mesa_adm_provee;
+    private javax.swing.JLabel lbl_agr_provee;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_adm_provee;
+    private javax.swing.JLabel lbl_elm_provee;
+    private javax.swing.JLabel lbl_fondo_interfaz_provee;
+    private javax.swing.JLabel lbl_ico_agr_provee;
+    private javax.swing.JLabel lbl_ico_elim_provee;
+    private javax.swing.JLabel lbl_ico_mod_provee;
+    private javax.swing.JLabel lbl_ico_mos_provee;
+    private javax.swing.JLabel lbl_ingre_adm_provee;
+    private javax.swing.JLabel lbl_inicio_adm_provee;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_logorojo_restau;
+    private javax.swing.JLabel lbl_mod_provee;
+    private javax.swing.JLabel lbl_mos_provee;
+    private javax.swing.JLabel lbl_proveedores_adm_prove;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JLabel lbl_somb_agre_provee;
+    private javax.swing.JLabel lbl_somb_elm_provee;
+    private javax.swing.JLabel lbl_somb_mod_provee;
+    private javax.swing.JLabel lbl_somb_mos_provee;
+    private javax.swing.JLabel lbl_titulo_adm_prove;
+    private javax.swing.JPanel pnl_barra_amarilla_provee;
+    private javax.swing.JPanel pnl_barra_lateral_provee;
+    private javax.swing.JPanel pnl_barra_superior_provee;
     // End of variables declaration//GEN-END:variables
 }

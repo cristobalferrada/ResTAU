@@ -1,0 +1,1356 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Vista.Ingrediente;
+
+
+import Clases.Conexion_BD;
+import Clases.Ingrediente;
+import Vista.Recetario.*;
+import Vista.Mesas.*;
+import Vista.Usuario.*;
+import Clases.Manejadora;
+import Clases.Mesa;
+import Clases.Personal;
+import Clases.Receta;
+
+//import Ventanas.*;
+import Ventanas_Administracion.Administrar_Mesas;
+import Ventanas_Administracion.Administrar_Proveedor;
+import Ventanas_Administracion.Administrar_datos_personal;
+import Ventanas_Administracion.Menu_principal;
+import Vista.Factura.Interfaz_Factura;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
+/**
+ *
+ * @author Admin
+ */
+public class interfaz_Ingrediente extends javax.swing.JFrame {
+
+    
+             int lastid;      
+            Connection con;
+            ResultSet rs;
+            Statement st;
+            PreparedStatement pst;
+    
+    
+    
+        
+    public interfaz_Ingrediente() {
+        initComponents();
+        getlastid();
+        this.setLocationRelativeTo(this);
+    //    setColor(btn_inicio); 
+       // ind_1.setOpaque(true);
+        //resetColor(new JPanel[]{btn_datper,btn_ingred,btn_admmes}, new JPanel[]{ind_2,ind_3, ind_4});
+        //jProgressBar1.setValue(50);
+        btn_volver.setToolTipText(""
+                + "<html>"
+                + "<head>"
+                + "<style>"
+                + "#contenido{"
+                + "backgroun: #f60;"
+                + "color: black"
+                + "}"
+                + "</style>"
+                + "</head>"
+                + "<body>"
+                + "<div id = 'contenido'>"
+                + "<strong>Regresa una ventana atras.</strong>"
+                + "</div>"
+                + "</body>"
+                + "</html>"
+                +"");
+   }
+    
+    
+     public void getlastid()
+    {
+         try {
+            
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String DB="jdbc:oracle:thin:@localhost:1521:orcl";
+            String user = "portafolio_tobal";
+            String pass = "toballxd";
+            String sql = "Select max(ID_INGREDIENTE) from INGREDIENTE";
+          Connection con = DriverManager.getConnection(DB, user, pass);  
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            if(rs.next())
+            {
+                lastid = rs.getInt(1);
+                lastid++;
+                text_id_ingrediente.setText(Integer.toString(lastid));
+            }
+            
+        }catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+            
+        }catch (ClassNotFoundException cs) {
+            
+            System.out.println(cs.getMessage());
+            
+        }       
+    }
+     
+     
+     public void mostrarDatosPanel()
+     {
+         DefaultTableModel modelo= new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Ingrediente");
+        modelo.addColumn("Grupo Ingrediente");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Unidad Medida");
+        this.jTable_mostrar.setModel(modelo);
+
+        try {
+            ResultSet rs = Manejadora.mostrarIngrediente();
+            String [] datos = new String[5];
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                datos[4]=rs.getString(5);
+                modelo.addRow(datos);
+                this.jTable_mostrar.setModel(modelo);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
+        
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        btn_buscar_nombre = new javax.swing.JButton();
+        btn_modificar_mod_ingre = new javax.swing.JButton();
+        pnl_barra_amarilla = new javax.swing.JPanel();
+        pnl_barra_amarilla1 = new javax.swing.JPanel();
+        pnl_barra_amarilla2 = new javax.swing.JPanel();
+        pnl_barra_amarilla3 = new javax.swing.JPanel();
+        text_nombre_ingrediente1 = new javax.swing.JTextField();
+        btn_buscar_grupo = new javax.swing.JButton();
+        lbl_filtrar_nombre = new javax.swing.JLabel();
+        btn_generar_reporte = new javax.swing.JButton();
+        lbl_cantidad_ingrediente = new javax.swing.JLabel();
+        lbl_unidad_medida = new javax.swing.JLabel();
+        jComboBox_Uni_med = new javax.swing.JComboBox<>();
+        lbl_cant_ingrediente = new javax.swing.JTextField();
+        jCombo_tipo_receta1 = new javax.swing.JComboBox<>();
+        lbl_filtrar_grupo_ali = new javax.swing.JLabel();
+        pnl_mostrar = new javax.swing.JScrollPane();
+        jTable_mostrar = new javax.swing.JTable();
+        btn_agregar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        jCombo_tipo_ingrediente = new javax.swing.JComboBox<>();
+        lbl_grupo_alimento = new javax.swing.JLabel();
+        btn_mostrar_most_mesa = new javax.swing.JButton();
+        lbl_nombre_ingre = new javax.swing.JLabel();
+        text_nombre_ingrediente = new javax.swing.JTextField();
+        lbl_logoazul_restau = new javax.swing.JLabel();
+        text_id_ingrediente = new javax.swing.JTextField();
+        lbl_id_ingre = new javax.swing.JLabel();
+        btn_volver = new javax.swing.JButton();
+        pnl_barra_lateral = new javax.swing.JPanel();
+        btn_inicio = new javax.swing.JPanel();
+        ind_1 = new javax.swing.JPanel();
+        lbl_inicio_agre_mesa = new javax.swing.JLabel();
+        pnl_barra_amarilla_agre_mesa = new javax.swing.JPanel();
+        btn_prove = new javax.swing.JPanel();
+        ind_11 = new javax.swing.JPanel();
+        lbl_proveedores_agre_mesa = new javax.swing.JLabel();
+        btn_datper = new javax.swing.JPanel();
+        ind_2 = new javax.swing.JPanel();
+        lbl_dtos_perso_agre_mesa = new javax.swing.JLabel();
+        btn_admmes = new javax.swing.JPanel();
+        ind_4 = new javax.swing.JPanel();
+        lbl_adm_mesa_agre_mesa = new javax.swing.JLabel();
+        btn_ingred = new javax.swing.JPanel();
+        ind_3 = new javax.swing.JPanel();
+        lbl_ingre_agre_mesa = new javax.swing.JLabel();
+        btn_exit = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        pnl_barra_superior = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        lbl_tipo_usuario = new javax.swing.JLabel();
+        lbl_img_usuario = new javax.swing.JLabel();
+        lbl_titulo_modulo_ingre = new javax.swing.JLabel();
+        lbl_logorojo_restau = new javax.swing.JLabel();
+        lbl_fondo_interfaz_ingrediente = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_buscar_nombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
+        btn_buscar_nombre.setText("Buscar por nombre");
+        btn_buscar_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_nombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_buscar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 210, 30));
+
+        btn_modificar_mod_ingre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
+        btn_modificar_mod_ingre.setText("Modificar");
+        btn_modificar_mod_ingre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificar_mod_ingreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_modificar_mod_ingre, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, 150, -1));
+
+        pnl_barra_amarilla.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 910, 10));
+
+        pnl_barra_amarilla1.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 920, 10));
+
+        pnl_barra_amarilla2.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 170, 10, 120));
+
+        pnl_barra_amarilla3.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 10, 110));
+
+        text_nombre_ingrediente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_nombre_ingrediente1ActionPerformed(evt);
+            }
+        });
+        text_nombre_ingrediente1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_nombre_ingrediente1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(text_nombre_ingrediente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 220, -1));
+
+        btn_buscar_grupo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
+        btn_buscar_grupo.setText("Buscar por grupo");
+        btn_buscar_grupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_grupoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_buscar_grupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 210, 30));
+
+        lbl_filtrar_nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_filtrar_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_filtrar_nombre.setText("FILTRAR POR NOMBRE");
+        getContentPane().add(lbl_filtrar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 200, 20));
+
+        btn_generar_reporte.setText("Generar Reporte General de STOCK");
+        btn_generar_reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generar_reporteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_generar_reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 300, 240, 70));
+
+        lbl_cantidad_ingrediente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_cantidad_ingrediente.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cantidad_ingrediente.setText("CANTIDAD INGREDIENTE:");
+        getContentPane().add(lbl_cantidad_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 150, 20));
+
+        lbl_unidad_medida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_unidad_medida.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_unidad_medida.setText("UNIDAD DE MEDIDA:");
+        getContentPane().add(lbl_unidad_medida, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 150, 20));
+
+        jComboBox_Uni_med.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "KG", "G", "L", "ML" }));
+        getContentPane().add(jComboBox_Uni_med, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 230, 180, -1));
+        getContentPane().add(lbl_cant_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 180, -1));
+
+        jCombo_tipo_receta1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Despensa", "Lacteos y Fiambres", "Frescos y Congelados", "Bebidas y Licores", "Confites", "Fruta", "Verduras" }));
+        getContentPane().add(jCombo_tipo_receta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 220, -1));
+
+        lbl_filtrar_grupo_ali.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_filtrar_grupo_ali.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_filtrar_grupo_ali.setText("FILTRAR POR GRUPO DE ALIMENTO");
+        getContentPane().add(lbl_filtrar_grupo_ali, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 200, 20));
+
+        jTable_mostrar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable_mostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_mostrarMouseClicked(evt);
+            }
+        });
+        pnl_mostrar.setViewportView(jTable_mostrar);
+
+        getContentPane().add(pnl_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 770, 340));
+
+        btn_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
+        btn_agregar.setText("Guardar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 750, 140, -1));
+
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Delete.png"))); // NOI18N
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 750, 150, -1));
+
+        jCombo_tipo_ingrediente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Despensa", "Lacteos y Fiambres", "Frescos y Congelados", "Bebidas y Licores", "Confites", "Fruta", "Verduras" }));
+        getContentPane().add(jCombo_tipo_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 220, -1));
+
+        lbl_grupo_alimento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_grupo_alimento.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_grupo_alimento.setText("GRUPO DE ALIMENTO");
+        getContentPane().add(lbl_grupo_alimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 140, 20));
+
+        btn_mostrar_most_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Read.png"))); // NOI18N
+        btn_mostrar_most_mesa.setText("Mostrar");
+        btn_mostrar_most_mesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mostrar_most_mesaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_mostrar_most_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 750, 140, -1));
+
+        lbl_nombre_ingre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_nombre_ingre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nombre_ingre.setText("NOMBRE INGREDIENTE:");
+        getContentPane().add(lbl_nombre_ingre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 130, 20));
+
+        text_nombre_ingrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_nombre_ingredienteActionPerformed(evt);
+            }
+        });
+        text_nombre_ingrediente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_nombre_ingredienteKeyTyped(evt);
+            }
+        });
+        getContentPane().add(text_nombre_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 220, -1));
+
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 90));
+
+        text_id_ingrediente.setEditable(false);
+        text_id_ingrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_id_ingredienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(text_id_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 70, -1));
+
+        lbl_id_ingre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id_ingre.setText("ID Ingrediente");
+        getContentPane().add(lbl_id_ingre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+
+        btn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 750, 70, -1));
+
+        pnl_barra_lateral.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_lateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_inicio.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_inicioMousePressed(evt);
+            }
+        });
+
+        ind_1.setOpaque(false);
+        ind_1.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_1Layout = new javax.swing.GroupLayout(ind_1);
+        ind_1.setLayout(ind_1Layout);
+        ind_1Layout.setHorizontalGroup(
+            ind_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_1Layout.setVerticalGroup(
+            ind_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_inicio_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_agre_mesa.setText("Inicio");
+
+        javax.swing.GroupLayout btn_inicioLayout = new javax.swing.GroupLayout(btn_inicio);
+        btn_inicio.setLayout(btn_inicioLayout);
+        btn_inicioLayout.setHorizontalGroup(
+            btn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicioLayout.createSequentialGroup()
+                .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lbl_inicio_agre_mesa)
+                .addGap(0, 53, Short.MAX_VALUE))
+        );
+        btn_inicioLayout.setVerticalGroup(
+            btn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicioLayout.createSequentialGroup()
+                .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_inicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_inicio_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 120, -1));
+
+        pnl_barra_amarilla_agre_mesa.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla_agre_mesa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_barra_lateral.add(pnl_barra_amarilla_agre_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 10, 780));
+
+        btn_prove.setBackground(new java.awt.Color(23, 35, 51));
+        btn_prove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_proveMouseReleased(evt);
+            }
+        });
+
+        ind_11.setOpaque(false);
+        ind_11.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_11Layout = new javax.swing.GroupLayout(ind_11);
+        ind_11.setLayout(ind_11Layout);
+        ind_11Layout.setHorizontalGroup(
+            ind_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_11Layout.setVerticalGroup(
+            ind_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_proveedores_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_proveedores_agre_mesa.setText("Proveedores");
+
+        javax.swing.GroupLayout btn_proveLayout = new javax.swing.GroupLayout(btn_prove);
+        btn_prove.setLayout(btn_proveLayout);
+        btn_proveLayout.setHorizontalGroup(
+            btn_proveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_proveLayout.createSequentialGroup()
+                .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_agre_mesa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_proveLayout.setVerticalGroup(
+            btn_proveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_proveLayout.createSequentialGroup()
+                .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_proveLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_proveedores_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_prove, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, -1));
+
+        btn_datper.setBackground(new java.awt.Color(23, 35, 51));
+        btn_datper.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_datperMouseReleased(evt);
+            }
+        });
+
+        ind_2.setOpaque(false);
+        ind_2.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_2Layout = new javax.swing.GroupLayout(ind_2);
+        ind_2.setLayout(ind_2Layout);
+        ind_2Layout.setHorizontalGroup(
+            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_2Layout.setVerticalGroup(
+            ind_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_dtos_perso_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dtos_perso_agre_mesa.setText("Datos de personal");
+
+        javax.swing.GroupLayout btn_datperLayout = new javax.swing.GroupLayout(btn_datper);
+        btn_datper.setLayout(btn_datperLayout);
+        btn_datperLayout.setHorizontalGroup(
+            btn_datperLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datperLayout.createSequentialGroup()
+                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_dtos_perso_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+        );
+        btn_datperLayout.setVerticalGroup(
+            btn_datperLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datperLayout.createSequentialGroup()
+                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_datperLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_dtos_perso_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_datper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, -1));
+
+        btn_admmes.setBackground(new java.awt.Color(23, 35, 51));
+        btn_admmes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_admmesMousePressed(evt);
+            }
+        });
+
+        ind_4.setOpaque(false);
+        ind_4.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_4Layout = new javax.swing.GroupLayout(ind_4);
+        ind_4.setLayout(ind_4Layout);
+        ind_4Layout.setHorizontalGroup(
+            ind_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_4Layout.setVerticalGroup(
+            ind_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_adm_mesa_agre_mesa.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_adm_mesa_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_agre_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_adm_mesa_agre_mesa.setText("Administrar Mesas");
+
+        javax.swing.GroupLayout btn_admmesLayout = new javax.swing.GroupLayout(btn_admmes);
+        btn_admmes.setLayout(btn_admmesLayout);
+        btn_admmesLayout.setHorizontalGroup(
+            btn_admmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmesLayout.createSequentialGroup()
+                .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_adm_mesa_agre_mesa)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        btn_admmesLayout.setVerticalGroup(
+            btn_admmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmesLayout.createSequentialGroup()
+                .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_admmesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_adm_mesa_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_admmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, -1));
+
+        btn_ingred.setBackground(new java.awt.Color(251, 243, 0));
+        btn_ingred.setForeground(new java.awt.Color(251, 243, 0));
+        btn_ingred.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_ingredMousePressed(evt);
+            }
+        });
+
+        ind_3.setOpaque(false);
+        ind_3.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_3Layout = new javax.swing.GroupLayout(ind_3);
+        ind_3.setLayout(ind_3Layout);
+        ind_3Layout.setHorizontalGroup(
+            ind_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_3Layout.setVerticalGroup(
+            ind_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_ingre_agre_mesa.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_ingre_agre_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_agre_mesa.setText("Ingredientes");
+
+        javax.swing.GroupLayout btn_ingredLayout = new javax.swing.GroupLayout(btn_ingred);
+        btn_ingred.setLayout(btn_ingredLayout);
+        btn_ingredLayout.setHorizontalGroup(
+            btn_ingredLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingredLayout.createSequentialGroup()
+                .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+        btn_ingredLayout.setVerticalGroup(
+            btn_ingredLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingredLayout.createSequentialGroup()
+                .addGroup(btn_ingredLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_ingre_agre_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnl_barra_lateral.add(btn_ingred, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 40));
+
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
+        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_exitMousePressed(evt);
+            }
+        });
+        pnl_barra_lateral.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 790, 30, 46));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
+            }
+        });
+
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, -1));
+
+        getContentPane().add(pnl_barra_lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 860));
+
+        pnl_barra_superior.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_barra_superiorMouseDragged(evt);
+            }
+        });
+        pnl_barra_superior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnl_barra_superiorMousePressed(evt);
+            }
+        });
+
+        jTextField1.setBackground(new java.awt.Color(123, 156, 225));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setBorder(null);
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField1.setPreferredSize(new java.awt.Dimension(2, 20));
+
+        lbl_tipo_usuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_tipo_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tipo_usuario.setText("Usuario: Administrador");
+
+        lbl_img_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_User_48px.png"))); // NOI18N
+
+        lbl_titulo_modulo_ingre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_titulo_modulo_ingre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_titulo_modulo_ingre.setText("Módulo de Ingredientes");
+
+        javax.swing.GroupLayout pnl_barra_superiorLayout = new javax.swing.GroupLayout(pnl_barra_superior);
+        pnl_barra_superior.setLayout(pnl_barra_superiorLayout);
+        pnl_barra_superiorLayout.setHorizontalGroup(
+            pnl_barra_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superiorLayout.createSequentialGroup()
+                .addContainerGap(334, Short.MAX_VALUE)
+                .addGroup(pnl_barra_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superiorLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superiorLayout.createSequentialGroup()
+                        .addComponent(lbl_titulo_modulo_ingre)
+                        .addGap(238, 238, 238)
+                        .addComponent(lbl_img_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))))
+        );
+        pnl_barra_superiorLayout.setVerticalGroup(
+            pnl_barra_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superiorLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(pnl_barra_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_img_usuario)
+                    .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_titulo_modulo_ingre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnl_barra_superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 1100, 90));
+
+        lbl_logorojo_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
+        getContentPane().add(lbl_logorojo_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 480, 270, 320));
+
+        lbl_fondo_interfaz_ingrediente.setBackground(new java.awt.Color(83, 83, 83));
+        lbl_fondo_interfaz_ingrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_recetario.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_ingrediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 1070, 770));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    int xx,xy;
+    private void pnl_barra_superiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superiorMousePressed
+        // TODO add your handling code here:
+        //drag this pane
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_pnl_barra_superiorMousePressed
+
+    private void pnl_barra_superiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superiorMouseDragged
+        // TODO add your handling code here:
+        
+        //source to drag
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_pnl_barra_superiorMouseDragged
+
+    private void btn_inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMousePressed
+        // TODO add your handling code here:
+       /* setColor(btn_inicio);
+        ind_1.setOpaque(true);
+        resetColor(new JPanel[]{btn_datper,btn_ingred,btn_admmes}, new JPanel[]{ind_2,ind_3, ind_4});*/
+        Menu_principal mp = new Menu_principal();
+        mp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_inicioMousePressed
+
+    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
+        // TODO add your handling code here:
+        int exit = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea salir?");
+        if (JOptionPane.OK_OPTION == exit)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btn_exitMousePressed
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        // TODO add your handling code here:
+        Menu_principal mp = new Menu_principal();
+        mp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void btn_proveMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_proveMouseReleased
+        // TODO add your handling code here:
+        Administrar_Proveedor adm_prove = new Administrar_Proveedor();
+        adm_prove.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_proveMouseReleased
+
+    private void btn_datperMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datperMouseReleased
+        // TODO add your handling code here:
+       /* setColor(btn_datper);
+        ind_2.setOpaque(true);
+        resetColor(new JPanel[]{btn_inicio,btn_ingred,btn_admmes}, new JPanel[]{ind_1,ind_3, ind_4});*/
+        Administrar_datos_personal dp = new Administrar_datos_personal();
+        dp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_datperMouseReleased
+
+    private void btn_admmesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_admmesMousePressed
+        // TODO add your handling code here:
+       /* setColor(btn_admmes);
+        ind_4.setOpaque(true);
+        resetColor(new JPanel[]{btn_datper,btn_ingred,btn_inicio}, new JPanel[]{ind_2,ind_3, ind_1});*/
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_admmesMousePressed
+
+    private void btn_ingredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingredMousePressed
+        // TODO add your handling code here:
+        /*setColor(btn_ingred);
+        ind_3.setOpaque(true);
+        resetColor(new JPanel[]{btn_datper,btn_inicio,btn_admmes}, new JPanel[]{ind_2,ind_1, ind_4});*/
+        interfaz_Ingrediente adm_ingre = new interfaz_Ingrediente();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_ingredMousePressed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        interfaz_Recetario adm_ingre = new interfaz_Recetario();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            getlastid();
+            Ingrediente per = new Ingrediente();
+            per.setId_ingrediente(Integer.parseInt(text_id_ingrediente.getText().trim()));
+            per.setNombre_ingrediente(text_nombre_ingrediente.getText().trim().toUpperCase());
+           
+            if(jCombo_tipo_ingrediente.getSelectedIndex() == 0)
+            {
+                per.setTipo_ingrediente("Sin definir");
+            }else {
+                per.setTipo_ingrediente(jCombo_tipo_ingrediente.getSelectedItem().toString());
+            }
+            
+            
+            per.setCantidad_ingrediente(Integer.parseInt(lbl_cant_ingrediente.getText().trim()));
+            
+              if(jComboBox_Uni_med.getSelectedIndex() == 0)
+            {
+                per.setUnidad_medida("Sin definir");
+            }else {
+                per.setUnidad_medida(jComboBox_Uni_med.getSelectedItem().toString());
+            }
+           
+           
+            if (Manejadora.agregarIngrediente(per))
+            {
+                JOptionPane.showMessageDialog(null, "Se ha creado una receta exitosamente");
+                getlastid();
+                this.text_nombre_ingrediente.setText(null);
+                this.jCombo_tipo_ingrediente.setSelectedIndex(0);
+                this.lbl_cant_ingrediente.setText(null);
+                this.jComboBox_Uni_med.setSelectedIndex(0); 
+                mostrarDatosPanel();
+                
+               
+            } else {
+                JOptionPane.showMessageDialog(null, "no se pudo crear el registro, Faltan datos","ERROR",0);
+            }
+
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "no se han ingresado datos", "Informacion", 1);
+        }
+    }//GEN-LAST:event_btn_agregarActionPerformed
+
+    private void text_nombre_ingredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombre_ingredienteActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_text_nombre_ingredienteActionPerformed
+
+    private void jTable_mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_mostrarMouseClicked
+        // TODO add your handling code here:
+        try
+        {
+            int x = jTable_mostrar.getSelectedRow();
+            String id_receta = (String)jTable_mostrar.getValueAt(x, 0);
+            String nombre_plato = (String)jTable_mostrar.getValueAt(x, 1);
+            String tipo = (String)jTable_mostrar.getValueAt(x, 2);
+            String descripcion = (String)jTable_mostrar.getValueAt(x, 3);
+            String precio = (String)jTable_mostrar.getValueAt(x, 4);
+      
+
+            text_id_ingrediente.setText(id_receta);
+            text_nombre_ingrediente.setText(nombre_plato);
+            jCombo_tipo_ingrediente.setSelectedItem(tipo);
+            lbl_cant_ingrediente.setText(descripcion);
+            jComboBox_Uni_med.setSelectedItem(precio);
+         
+
+        }catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "no se ha seleccionado ninguna fila");
+        }
+    }//GEN-LAST:event_jTable_mostrarMouseClicked
+
+    private void text_id_ingredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_id_ingredienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_id_ingredienteActionPerformed
+
+    private void btn_mostrar_most_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostrar_most_mesaActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo= new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Ingrediente");
+        modelo.addColumn("Grupo Ingrediente");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Unidad Medida");
+        this.jTable_mostrar.setModel(modelo);
+
+        try {
+            ResultSet rs = Manejadora.mostrarIngrediente();
+            String [] datos = new String[5];
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                datos[4]=rs.getString(5);
+                modelo.addRow(datos);
+                this.jTable_mostrar.setModel(modelo);
+               
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_mostrar_most_mesaActionPerformed
+
+    private void btn_buscar_grupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_grupoActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            DefaultTableModel modelo= new DefaultTableModel();
+           modelo.addColumn("ID");
+            modelo.addColumn("Ingrediente");
+            modelo.addColumn("Grupo Ingrediente");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Unidad Medida");
+            this.jTable_mostrar.setModel(modelo);
+            try {
+                ResultSet rs = Manejadora.buscarIngrediente_grupo((String) jCombo_tipo_receta1.getSelectedItem());
+                String [] datos = new String[5];
+                while(rs.next()){
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);
+                    datos[3]=rs.getString(4);
+                    datos[4]=rs.getString(5);
+                    modelo.addRow(datos);
+                    this.jTable_mostrar.setModel(modelo);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "No se ha encontrado ningun Ingrediente");
+        }
+    }//GEN-LAST:event_btn_buscar_grupoActionPerformed
+
+    private void btn_modificar_mod_ingreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_mod_ingreActionPerformed
+
+        try
+        {
+            Ingrediente per = new Ingrediente();
+            per.setId_ingrediente(Integer.parseInt(text_id_ingrediente.getText().trim()));
+            per.setNombre_ingrediente(text_nombre_ingrediente.getText().trim());
+       
+
+            if(jCombo_tipo_ingrediente.getSelectedIndex() == 0)
+            {
+                per.setTipo_ingrediente("Sin definir");
+            }else {
+                per.setTipo_ingrediente(jCombo_tipo_ingrediente.getSelectedItem().toString());
+            }
+            
+            per.setCantidad_ingrediente(Integer.parseInt(lbl_cant_ingrediente.getText().trim()));
+          
+            if(jComboBox_Uni_med.getSelectedIndex() == 0)
+            {
+                per.setUnidad_medida("Sin definir");
+            }else {
+                per.setUnidad_medida(jComboBox_Uni_med.getSelectedItem().toString());
+            }
+
+            if (Manejadora.actualizarIngrediente(per))
+            {
+                JOptionPane.showMessageDialog(null, "Se Modifico Exitosamente");
+                getlastid();
+                mostrarDatosPanel();
+                text_nombre_ingrediente.setText("");
+                jCombo_tipo_ingrediente.setSelectedIndex(0);
+                lbl_cant_ingrediente.setText("");
+                jComboBox_Uni_med.setSelectedIndex(0);
+               
+
+            } else {
+                JOptionPane.showMessageDialog(null, "no se pudo modificar el registro");
+            }
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese Todos los Campos restantes.");
+        }
+    }//GEN-LAST:event_btn_modificar_mod_ingreActionPerformed
+
+    private void text_nombre_ingredienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_nombre_ingredienteKeyTyped
+
+         char n = evt.getKeyChar();
+        if((n<'a' || n>'z') && (n<'A' || n>'Z') && (n<' ' || n>' '))evt.consume();
+    }//GEN-LAST:event_text_nombre_ingredienteKeyTyped
+
+    private void text_nombre_ingrediente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombre_ingrediente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_nombre_ingrediente1ActionPerformed
+
+    private void text_nombre_ingrediente1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_nombre_ingrediente1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_nombre_ingrediente1KeyTyped
+
+    private void btn_buscar_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_nombreActionPerformed
+          try
+        {
+            DefaultTableModel modelo= new DefaultTableModel();
+           modelo.addColumn("ID");
+            modelo.addColumn("Ingrediente");
+            modelo.addColumn("Grupo Ingrediente");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Unidad Medida");
+            this.jTable_mostrar.setModel(modelo);
+            try {
+                ResultSet rs = Manejadora.buscarIngrediente(this.text_nombre_ingrediente1.getText().toUpperCase());
+                String [] datos = new String[5];
+                while(rs.next()){
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);
+                    datos[3]=rs.getString(4);
+                    datos[4]=rs.getString(5);
+                    modelo.addRow(datos);
+                    this.jTable_mostrar.setModel(modelo);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "No se ha encontrado ningun Ingrediente");
+        }
+    }//GEN-LAST:event_btn_buscar_nombreActionPerformed
+
+    private void btn_generar_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generar_reporteActionPerformed
+       try {
+           
+          
+            Conexion_BD con = new Conexion_BD();
+            Connection conn = Conexion_BD.getConexion_BD();
+            
+            JasperReport reporte = null;
+            String path = "src\\Vista\\Ingrediente\\ReporteIngrediente.jasper";
+            
+            Map parametro = new HashMap();
+            parametro.put("id_estado", 36);
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, conn);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(interfaz_Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_generar_reporteActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+
+        int selec;
+        selec = (Integer)this.jTable_mostrar.getSelectedRow();
+
+        if (selec==-1)
+        {
+            JOptionPane.showMessageDialog(this,"No se ha seleccionado ninguna fila");
+        }
+        else
+        {
+
+            int conf = JOptionPane.showConfirmDialog(this,"Esta seguro de eliminar seleccionado?");
+            if (JOptionPane.OK_OPTION == conf) {
+
+                selec = (Integer)this.jTable_mostrar.getSelectedRow();
+                String nom_prod;
+                nom_prod = this.jTable_mostrar.getValueAt(selec, 0).toString();
+                try {
+                    Manejadora.eliminarIngrediente(conf, nom_prod);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(interfaz_Ingrediente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(this,"Registro eliminado");
+                mostrarDatosPanel();
+
+            }
+        }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(interfaz_Ingrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(interfaz_Ingrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(interfaz_Ingrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(interfaz_Ingrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+     
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new interfaz_Ingrediente().setVisible(true);
+            }
+        });
+    }
+   
+    
+    private void setColor(JPanel pane)
+    {
+        pane.setBackground(new Color(41,57,80));
+    }
+    
+    private void resetColor(JPanel [] pane, JPanel [] indicators)
+    {
+        for(int i=0;i<pane.length;i++){
+           pane[i].setBackground(new Color(23,35,51));
+           
+        } for(int i=0;i<indicators.length;i++){
+           indicators[i].setOpaque(false);           
+        }
+        
+    }
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btn_admmes;
+    private javax.swing.JButton btn_agregar;
+    private javax.swing.JButton btn_buscar_grupo;
+    private javax.swing.JButton btn_buscar_nombre;
+    private javax.swing.JPanel btn_datper;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JLabel btn_exit;
+    private javax.swing.JButton btn_generar_reporte;
+    private javax.swing.JPanel btn_ingred;
+    private javax.swing.JPanel btn_inicio;
+    private javax.swing.JButton btn_modificar_mod_ingre;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JButton btn_mostrar_most_mesa;
+    private javax.swing.JPanel btn_prove;
+    private javax.swing.JPanel btn_recetario;
+    private javax.swing.JButton btn_volver;
+    private javax.swing.JPanel ind_1;
+    private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
+    private javax.swing.JPanel ind_2;
+    private javax.swing.JPanel ind_3;
+    private javax.swing.JPanel ind_4;
+    private javax.swing.JComboBox<String> jComboBox_Uni_med;
+    private javax.swing.JComboBox<String> jCombo_tipo_ingrediente;
+    private javax.swing.JComboBox<String> jCombo_tipo_receta1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTable jTable_mostrar;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbl_adm_mesa_agre_mesa;
+    private javax.swing.JTextField lbl_cant_ingrediente;
+    private javax.swing.JLabel lbl_cantidad_ingrediente;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_agre_mesa;
+    private javax.swing.JLabel lbl_filtrar_grupo_ali;
+    private javax.swing.JLabel lbl_filtrar_nombre;
+    private javax.swing.JLabel lbl_fondo_interfaz_ingrediente;
+    private javax.swing.JLabel lbl_grupo_alimento;
+    private javax.swing.JLabel lbl_id_ingre;
+    private javax.swing.JLabel lbl_img_usuario;
+    private javax.swing.JLabel lbl_ingre_agre_mesa;
+    private javax.swing.JLabel lbl_inicio_agre_mesa;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_logorojo_restau;
+    private javax.swing.JLabel lbl_nombre_ingre;
+    private javax.swing.JLabel lbl_proveedores_agre_mesa;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JLabel lbl_tipo_usuario;
+    private javax.swing.JLabel lbl_titulo_modulo_ingre;
+    private javax.swing.JLabel lbl_unidad_medida;
+    private javax.swing.JPanel pnl_barra_amarilla;
+    private javax.swing.JPanel pnl_barra_amarilla1;
+    private javax.swing.JPanel pnl_barra_amarilla2;
+    private javax.swing.JPanel pnl_barra_amarilla3;
+    private javax.swing.JPanel pnl_barra_amarilla_agre_mesa;
+    private javax.swing.JPanel pnl_barra_lateral;
+    private javax.swing.JPanel pnl_barra_superior;
+    private javax.swing.JScrollPane pnl_mostrar;
+    private javax.swing.JTextField text_id_ingrediente;
+    private javax.swing.JTextField text_nombre_ingrediente;
+    private javax.swing.JTextField text_nombre_ingrediente1;
+    // End of variables declaration//GEN-END:variables
+}

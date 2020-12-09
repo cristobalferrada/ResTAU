@@ -18,6 +18,7 @@ public class Proveedor {
     private String direccion_proveedor;
     private String descripcion_proveedor;
     private String email_proveedor;
+    private String tipo_proveedor;
     
     public Proveedor()
     {
@@ -72,8 +73,18 @@ public class Proveedor {
         this.email_proveedor = email_proveedor;
     }
 
+    public String getTipo_proveedor() {
+        return tipo_proveedor;
+    }
+
+    public void setTipo_proveedor(String tipo_proveedor) {
+        this.tipo_proveedor = tipo_proveedor;
+    }
+    
+    
+
     public String toString() {
-        return "Proveedor{" + "id_proveedor=" + id_proveedor + ", nom_proveedor=" + nom_proveedor + ", telefono_proveedor=" + telefono_proveedor + ", direccion_proveedorr=" + direccion_proveedor + ", descripcion_proveedor=" + descripcion_proveedor + ", email_proveedor=" + email_proveedor +'}';
+        return "Proveedor{" + "id_proveedor=" + id_proveedor + ", nom_proveedor=" + nom_proveedor + ", telefono_proveedor=" + telefono_proveedor + ", direccion_proveedorr=" + direccion_proveedor + ", descripcion_proveedor=" + descripcion_proveedor + ", email_proveedor=" + email_proveedor + ", tipo_proveedor=" + tipo_proveedor +'}';
     }
     
   

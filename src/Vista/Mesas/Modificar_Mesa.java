@@ -5,16 +5,19 @@
  */
 package Vista.Mesas;
 
-import Vista.Usuario.*;
-import Ventanas.*;
+//import Ventanas.*;
 import java.awt.Color;
 import javax.swing.JPanel;
 import Clases.Manejadora;
 import Clases.Mesa;
 import Clases.Personal;
 import Ventanas_Administracion.Administrar_Mesas;
+import Ventanas_Administracion.Administrar_Proveedor;
 import Ventanas_Administracion.Administrar_datos_personal;
-import Vista.Menu_Restau;
+import Ventanas_Administracion.Menu_principal;
+import Vista.Factura.Interfaz_Factura;
+import Vista.Ingrediente.interfaz_Ingrediente;
+import Vista.Recetario.interfaz_Recetario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -34,9 +37,9 @@ public class Modificar_Mesa extends javax.swing.JFrame {
     public Modificar_Mesa() {
         initComponents();
         this.setLocationRelativeTo(this);
-        setColor(btn_1); 
+        setColor(btn_inicio_mod_mesa); 
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
+        resetColor(new JPanel[]{btn_datper_mod_mesa,btn_ingred_med_mesa,btn_admmes_mod_mesa}, new JPanel[]{ind_2,ind_3, ind_4});
         //jProgressBar1.setValue(50);
         jl_info_rut_buscar.setToolTipText(""
                 + "<html>"
@@ -55,7 +58,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-                jButton_buscar.setToolTipText(""
+                btn_buscar_mod_mesa.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -72,7 +75,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-                jButton_volver.setToolTipText(""
+                btn_volver_mod_mesa.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -89,7 +92,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
                 + "</body>"
                 + "</html>"
                 +"");
-        jButton_modificar.setToolTipText(""
+        btn_modificar_mod_mesa.setToolTipText(""
                 + "<html>"
                 + "<head>"
                 + "<style>"
@@ -135,53 +138,56 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         side_pane9 = new javax.swing.JPanel();
         side_pane3 = new javax.swing.JPanel();
         side_pane4 = new javax.swing.JPanel();
-        side_pane7 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        lbl_logoazul_restau = new javax.swing.JLabel();
         side_pane = new javax.swing.JPanel();
-        btn_1 = new javax.swing.JPanel();
+        btn_inicio_mod_mesa = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lbl_inicio_med_mesa = new javax.swing.JLabel();
         btn_exit = new javax.swing.JLabel();
-        btn_11 = new javax.swing.JPanel();
+        btn_prove_mod_mesa = new javax.swing.JPanel();
         ind_11 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        lbl_proveedores_mod_mesa = new javax.swing.JLabel();
+        btn_datper_mod_mesa = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_4 = new javax.swing.JPanel();
+        lbl_dtos_perso_mod_mesa = new javax.swing.JLabel();
+        btn_admmes_mod_mesa = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btn_3 = new javax.swing.JPanel();
+        lbl_adm_mesa_mod_mesa = new javax.swing.JLabel();
+        btn_ingred_med_mesa = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        txtnom = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtape = new javax.swing.JTextField();
-        txtrut = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton_buscar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        lbl_ingre_mod_mesa = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        pnl_barra_superior_mod_mesa = new javax.swing.JPanel();
+        lbl_tipo_usuario = new javax.swing.JLabel();
+        lbl_icono_usuario = new javax.swing.JLabel();
+        lbl_titulo_mod_mesa = new javax.swing.JLabel();
+        txt_numero_mesa = new javax.swing.JTextField();
+        lbl_capacidad_mod_mesa = new javax.swing.JLabel();
+        lbl_numero_mesa = new javax.swing.JLabel();
+        txt_capacidad_mod_mesa = new javax.swing.JTextField();
+        txt_fecha_registro_mod_mesa = new javax.swing.JFormattedTextField();
+        txt_numero_mesa_mod_mesa = new javax.swing.JTextField();
+        lbl_estilo_mesa_mod_mesa = new javax.swing.JLabel();
+        lbl_fecha_registro_mod_mesa = new javax.swing.JLabel();
+        btn_buscar_mod_mesa = new javax.swing.JButton();
+        cbo_estilo_mesa_mod_mesa = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_mostrar = new javax.swing.JTable();
-        txtcel = new javax.swing.JTextField();
-        jButton_modificar = new javax.swing.JButton();
-        jButton_volver = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        txt_rut = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        txt_dvrut = new javax.swing.JTextField();
+        btn_modificar_mod_mesa = new javax.swing.JButton();
+        btn_volver_mod_mesa = new javax.swing.JButton();
+        lbl_id_mesa_mod_mesa = new javax.swing.JLabel();
+        txt_id_mesa_mod_mesa = new javax.swing.JTextField();
+        lbl_numero_mesa_mod_mesa = new javax.swing.JLabel();
         jl_info_rut_buscar = new javax.swing.JLabel();
         jl_info_mostrar = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jctipo_personal = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_estado_mesa_mod_mesa = new javax.swing.JLabel();
+        cbo_estado_mesa_mod_mesa = new javax.swing.JComboBox<>();
+        lbl_fondo_interfaz_mod_mesa = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -207,7 +213,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
                 jButton_mostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 110, -1));
+        getContentPane().add(jButton_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 110, -1));
 
         side_pane12.setBackground(new java.awt.Color(251, 243, 0));
         side_pane12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -278,21 +284,17 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         side_pane4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(side_pane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 10, 210));
 
-        side_pane7.setBackground(new java.awt.Color(251, 243, 0));
-        side_pane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(side_pane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 90, 20));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
-        jLabel17.setText("jLabel17");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 205, 100));
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        lbl_logoazul_restau.setText("jLabel17");
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 100));
 
         side_pane.setBackground(new java.awt.Color(23, 35, 51));
         side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_1.setBackground(new java.awt.Color(23, 35, 51));
-        btn_1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inicio_mod_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio_mod_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_1MousePressed(evt);
+                btn_inicio_mod_mesaMousePressed(evt);
             }
         });
 
@@ -310,32 +312,32 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Inicio");
+        lbl_inicio_med_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio_med_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_med_mesa.setText("Inicio");
 
-        javax.swing.GroupLayout btn_1Layout = new javax.swing.GroupLayout(btn_1);
-        btn_1.setLayout(btn_1Layout);
-        btn_1Layout.setHorizontalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_inicio_mod_mesaLayout = new javax.swing.GroupLayout(btn_inicio_mod_mesa);
+        btn_inicio_mod_mesa.setLayout(btn_inicio_mod_mesaLayout);
+        btn_inicio_mod_mesaLayout.setHorizontalGroup(
+            btn_inicio_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lbl_inicio_med_mesa)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        btn_1Layout.setVerticalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        btn_inicio_mod_mesaLayout.setVerticalGroup(
+            btn_inicio_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_1Layout.createSequentialGroup()
+            .addGroup(btn_inicio_mod_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_inicio_med_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, -1));
+        side_pane.add(btn_inicio_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, -1));
 
         btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,10 +347,10 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         });
         side_pane.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
 
-        btn_11.setBackground(new java.awt.Color(23, 35, 51));
-        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_prove_mod_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_prove_mod_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_11MouseReleased(evt);
+                btn_prove_mod_mesaMouseReleased(evt);
             }
         });
 
@@ -366,37 +368,37 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Proveedores");
+        lbl_proveedores_mod_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_proveedores_mod_mesa.setText("Proveedores");
 
-        javax.swing.GroupLayout btn_11Layout = new javax.swing.GroupLayout(btn_11);
-        btn_11.setLayout(btn_11Layout);
-        btn_11Layout.setHorizontalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_prove_mod_mesaLayout = new javax.swing.GroupLayout(btn_prove_mod_mesa);
+        btn_prove_mod_mesa.setLayout(btn_prove_mod_mesaLayout);
+        btn_prove_mod_mesaLayout.setHorizontalGroup(
+            btn_prove_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_mod_mesa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        btn_11Layout.setVerticalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        btn_prove_mod_mesaLayout.setVerticalGroup(
+            btn_prove_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_11Layout.createSequentialGroup()
+            .addGroup(btn_prove_mod_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_proveedores_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 140, -1));
+        side_pane.add(btn_prove_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_datper_mod_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_datper_mod_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_datper_mod_mesaMouseReleased(evt);
             }
         });
 
@@ -414,36 +416,36 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Datos de personal");
+        lbl_dtos_perso_mod_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dtos_perso_mod_mesa.setText("Datos de personal");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_datper_mod_mesaLayout = new javax.swing.GroupLayout(btn_datper_mod_mesa);
+        btn_datper_mod_mesa.setLayout(btn_datper_mod_mesaLayout);
+        btn_datper_mod_mesaLayout.setHorizontalGroup(
+            btn_datper_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addComponent(lbl_dtos_perso_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_datper_mod_mesaLayout.setVerticalGroup(
+            btn_datper_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_datper_mod_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_dtos_perso_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+        side_pane.add(btn_datper_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
 
-        btn_4.setBackground(new java.awt.Color(251, 243, 0));
-        btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_admmes_mod_mesa.setBackground(new java.awt.Color(251, 243, 0));
+        btn_admmes_mod_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_4MousePressed(evt);
+                btn_admmes_mod_mesaMousePressed(evt);
             }
         });
 
@@ -461,36 +463,36 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setText("Administrar Mesas");
+        lbl_adm_mesa_mod_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_mod_mesa.setText("Administrar Mesas");
 
-        javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
-        btn_4.setLayout(btn_4Layout);
-        btn_4Layout.setHorizontalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_admmes_mod_mesaLayout = new javax.swing.GroupLayout(btn_admmes_mod_mesa);
+        btn_admmes_mod_mesa.setLayout(btn_admmes_mod_mesaLayout);
+        btn_admmes_mod_mesaLayout.setHorizontalGroup(
+            btn_admmes_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(lbl_adm_mesa_mod_mesa)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        btn_4Layout.setVerticalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        btn_admmes_mod_mesaLayout.setVerticalGroup(
+            btn_admmes_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_mod_mesaLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_4Layout.createSequentialGroup()
+            .addGroup(btn_admmes_mod_mesaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_adm_mesa_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 130, -1));
+        side_pane.add(btn_admmes_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
 
-        btn_3.setBackground(new java.awt.Color(23, 35, 51));
-        btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ingred_med_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        btn_ingred_med_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_3MousePressed(evt);
+                btn_ingred_med_mesaMousePressed(evt);
             }
         });
 
@@ -508,130 +510,233 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ingredientes");
+        lbl_ingre_mod_mesa.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ingre_mod_mesa.setText("Ingredientes");
 
-        javax.swing.GroupLayout btn_3Layout = new javax.swing.GroupLayout(btn_3);
-        btn_3.setLayout(btn_3Layout);
-        btn_3Layout.setHorizontalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_ingred_med_mesaLayout = new javax.swing.GroupLayout(btn_ingred_med_mesa);
+        btn_ingred_med_mesa.setLayout(btn_ingred_med_mesaLayout);
+        btn_ingred_med_mesaLayout.setHorizontalGroup(
+            btn_ingred_med_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_med_mesaLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
-        btn_3Layout.setVerticalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
-                .addGroup(btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btn_ingred_med_mesaLayout.setVerticalGroup(
+            btn_ingred_med_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_med_mesaLayout.createSequentialGroup()
+                .addGroup(btn_ingred_med_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_ingre_mod_mesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        side_pane.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, 40));
+        side_pane.add(btn_ingred_med_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
+            }
+        });
+
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        side_pane.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        side_pane.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 140, -1));
 
         getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
 
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        pnl_barra_superior_mod_mesa.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior_mod_mesa.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
+                pnl_barra_superior_mod_mesaMouseDragged(evt);
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnl_barra_superior_mod_mesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                pnl_barra_superior_mod_mesaMousePressed(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Usuario: Administrador");
+        lbl_tipo_usuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_tipo_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tipo_usuario.setText("Usuario: Administrador");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_User_48px.png"))); // NOI18N
+        lbl_icono_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_User_48px.png"))); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Modificar Mesas");
+        lbl_titulo_mod_mesa.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_titulo_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_titulo_mod_mesa.setText("Modificar Mesas");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(362, 362, 362)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout pnl_barra_superior_mod_mesaLayout = new javax.swing.GroupLayout(pnl_barra_superior_mod_mesa);
+        pnl_barra_superior_mod_mesa.setLayout(pnl_barra_superior_mod_mesaLayout);
+        pnl_barra_superior_mod_mesaLayout.setHorizontalGroup(
+            pnl_barra_superior_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_mod_mesaLayout.createSequentialGroup()
+                .addContainerGap(357, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_mod_mesa)
+                .addGap(216, 216, 216)
+                .addComponent(lbl_icono_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jLabel26)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        pnl_barra_superior_mod_mesaLayout.setVerticalGroup(
+            pnl_barra_superior_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_mod_mesaLayout.createSequentialGroup()
+                .addGap(0, 40, Short.MAX_VALUE)
+                .addGroup(pnl_barra_superior_mod_mesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_icono_usuario)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_mod_mesaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_mod_mesa)
+                .addGap(29, 29, 29))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
+        getContentPane().add(pnl_barra_superior_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
 
-        txtnom.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_numero_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtnomKeyTyped(evt);
+                txt_numero_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 155, -1));
+        getContentPane().add(txt_numero_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 155, -1));
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("CAPACIDAD:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        lbl_capacidad_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_capacidad_mod_mesa.setText("CAPACIDAD:");
+        getContentPane().add(lbl_capacidad_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
 
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Numero mesa:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, 20));
+        lbl_numero_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_numero_mesa.setText("Numero mesa:");
+        getContentPane().add(lbl_numero_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, 20));
 
-        txtape.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_capacidad_mod_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtapeKeyTyped(evt);
+                txt_capacidad_mod_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtape, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 155, -1));
+        getContentPane().add(txt_capacidad_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 155, -1));
 
-        txtrut.addKeyListener(new java.awt.event.KeyAdapter() {
+        try {
+            txt_fecha_registro_mod_mesa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txt_fecha_registro_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 140, -1));
+
+        txt_numero_mesa_mod_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtrutKeyTyped(evt);
+                txt_numero_mesa_mod_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 125, -1));
+        getContentPane().add(txt_numero_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 125, -1));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ESTILO MESA:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
+        lbl_estilo_mesa_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_estilo_mesa_mod_mesa.setText("ESTILO MESA:");
+        getContentPane().add(lbl_estilo_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("FECHA REGISTRO:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
+        lbl_fecha_registro_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fecha_registro_mod_mesa.setText("FECHA REGISTRO:");
+        getContentPane().add(lbl_fecha_registro_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
 
-        jButton_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
-        jButton_buscar.setText("Buscar");
-        jButton_buscar.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar_mod_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_P.png"))); // NOI18N
+        btn_buscar_mod_mesa.setText("Buscar");
+        btn_buscar_mod_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_buscarActionPerformed(evt);
+                btn_buscar_mod_mesaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 120, 30));
+        getContentPane().add(btn_buscar_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 120, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Premium", "Familiar", "Ejecutiva", "Personal", "Casual" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 140, -1));
+        cbo_estilo_mesa_mod_mesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Premium", "Familiar", "Ejecutiva", "Personal", "Casual" }));
+        getContentPane().add(cbo_estilo_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 140, -1));
 
         jTable_mostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -653,55 +758,38 @@ public class Modificar_Mesa extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 690, 190));
 
-        txtcel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtcelKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txtcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 140, 20));
-
-        jButton_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
-        jButton_modificar.setText("Modificar");
-        jButton_modificar.addActionListener(new java.awt.event.ActionListener() {
+        btn_modificar_mod_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
+        btn_modificar_mod_mesa.setText("Modificar");
+        btn_modificar_mod_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_modificarActionPerformed(evt);
+                btn_modificar_mod_mesaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 120, -1));
+        getContentPane().add(btn_modificar_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, 120, -1));
 
-        jButton_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
-        jButton_volver.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver_mod_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Volver.png"))); // NOI18N
+        btn_volver_mod_mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_volverActionPerformed(evt);
+                btn_volver_mod_mesaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 530, 100, -1));
+        getContentPane().add(btn_volver_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 530, 100, -1));
 
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("ID MESA:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 85, -1));
+        lbl_id_mesa_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id_mesa_mod_mesa.setText("ID MESA:");
+        getContentPane().add(lbl_id_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 85, -1));
 
-        txt_rut.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_id_mesa_mod_mesa.setEditable(false);
+        txt_id_mesa_mod_mesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_rutKeyTyped(evt);
+                txt_id_mesa_mod_mesaKeyTyped(evt);
             }
         });
-        getContentPane().add(txt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 90, -1));
+        getContentPane().add(txt_id_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 60, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NUMERO MESA:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
-
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("-");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 7, -1));
-
-        txt_dvrut.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_dvrutKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_dvrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 22, -1));
+        lbl_numero_mesa_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_numero_mesa_mod_mesa.setText("NUMERO MESA:");
+        getContentPane().add(lbl_numero_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         jl_info_rut_buscar.setForeground(new java.awt.Color(255, 255, 255));
         jl_info_rut_buscar.setText("(?)");
@@ -709,46 +797,46 @@ public class Modificar_Mesa extends javax.swing.JFrame {
 
         jl_info_mostrar.setForeground(new java.awt.Color(255, 255, 255));
         jl_info_mostrar.setText("(?)");
-        getContentPane().add(jl_info_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, 21, -1));
+        getContentPane().add(jl_info_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, 21, -1));
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("UBICACION:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, -1));
+        lbl_estado_mesa_mod_mesa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_estado_mesa_mod_mesa.setText("ESTADO MESA");
+        getContentPane().add(lbl_estado_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, -1));
 
-        jctipo_personal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Jefe de personal", "Guardia", "Camarero/a", "Mesero/a" }));
-        getContentPane().add(jctipo_personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 140, -1));
+        cbo_estado_mesa_mod_mesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "EN BODEGA", "EN LOCAL" }));
+        getContentPane().add(cbo_estado_mesa_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 140, -1));
 
-        jLabel1.setBackground(new java.awt.Color(83, 83, 83));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 930, 500));
+        lbl_fondo_interfaz_mod_mesa.setBackground(new java.awt.Color(83, 83, 83));
+        lbl_fondo_interfaz_mod_mesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_mod_mesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 930, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     int xx,xy;
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void pnl_barra_superior_mod_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_mod_mesaMousePressed
         // TODO add your handling code here:
         //drag this pane
         xx = evt.getX();
         xy = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }//GEN-LAST:event_pnl_barra_superior_mod_mesaMousePressed
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void pnl_barra_superior_mod_mesaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_mod_mesaMouseDragged
         // TODO add your handling code here:
         
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }//GEN-LAST:event_pnl_barra_superior_mod_mesaMouseDragged
 
-    private void btn_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MousePressed
+    private void btn_inicio_mod_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_mod_mesaMousePressed
         // TODO add your handling code here:
        
-        Menu_Restau evento = new Menu_Restau();
+        Menu_principal evento = new Menu_principal();
         evento.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_1MousePressed
+    }//GEN-LAST:event_btn_inicio_mod_mesaMousePressed
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
         // TODO add your handling code here:
@@ -759,25 +847,24 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_exitMousePressed
 
-    private void txtnomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomKeyTyped
+    private void txt_numero_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numero_mesaKeyTyped
         // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if((n<'a' || n>'z') && (n<'A' || n>'Z') && (n<' ' || n>' '))evt.consume();
-    }//GEN-LAST:event_txtnomKeyTyped
+       
+    }//GEN-LAST:event_txt_numero_mesaKeyTyped
 
-    private void txtapeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapeKeyTyped
-        // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if((n<'a' || n>'z') && (n<'A' || n>'Z') && (n<' ' || n>' '))evt.consume();
-    }//GEN-LAST:event_txtapeKeyTyped
-
-    private void txtrutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrutKeyTyped
+    private void txt_capacidad_mod_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_capacidad_mod_mesaKeyTyped
         // TODO add your handling code here:
         char n = evt.getKeyChar();
         if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txtrutKeyTyped
+    }//GEN-LAST:event_txt_capacidad_mod_mesaKeyTyped
 
-    private void jButton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscarActionPerformed
+    private void txt_numero_mesa_mod_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numero_mesa_mod_mesaKeyTyped
+        // TODO add your handling code here:
+        char n = evt.getKeyChar();
+        if( n<'0' || n>'9' )evt.consume();
+    }//GEN-LAST:event_txt_numero_mesa_mod_mesaKeyTyped
+
+    private void btn_buscar_mod_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_mod_mesaActionPerformed
         // TODO add your handling code here:
         try
         {
@@ -790,7 +877,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
                 modelo.addColumn("Estado de mesa");
             this.jTable_mostrar.setModel(modelo);
             try {
-                ResultSet rs = Manejadora.buscarMesa(this.txtrut.getText());
+                ResultSet rs = Manejadora.buscarMesa(this.txt_numero_mesa_mod_mesa.getText());
                 String [] datos = new String[6];
                 while(rs.next()){
                     datos[0]=rs.getString(1);
@@ -810,7 +897,7 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "no se ha ingresado rut");
         }
-    }//GEN-LAST:event_jButton_buscarActionPerformed
+    }//GEN-LAST:event_btn_buscar_mod_mesaActionPerformed
 
     private void jTable_mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_mostrarMouseClicked
         // TODO add your handling code here:
@@ -824,12 +911,13 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             String correo = (String)jTable_mostrar.getValueAt(x, 4);
             String tipo_pers = (String)jTable_mostrar.getValueAt(x, 5);
 
-            txt_rut.setText(rut);
-            txtnom.setText(nombre);
-            txtape.setText(apellido);
-            jComboBox1.setSelectedItem(celular);
-            txtcel.setText(correo);
-            jctipo_personal.setSelectedItem(tipo_pers);
+            txt_id_mesa_mod_mesa.setText(rut);
+            txt_numero_mesa.setText(nombre);
+            txt_capacidad_mod_mesa.setText(apellido);
+            cbo_estilo_mesa_mod_mesa.setSelectedItem(celular);
+            txt_fecha_registro_mod_mesa.setText(correo);
+            cbo_estado_mesa_mod_mesa.setSelectedItem(tipo_pers);
+            
 
         }catch (Exception e)
         {
@@ -838,44 +926,42 @@ public class Modificar_Mesa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTable_mostrarMouseClicked
 
-    private void txtcelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcelKeyTyped
-        // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txtcelKeyTyped
-
-    private void jButton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modificarActionPerformed
-        // TODO add your handling code here:
+    private void btn_modificar_mod_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_mod_mesaActionPerformed
 
         try
         {
             Mesa per = new Mesa();
-            per.setId_mesa(Integer.parseInt(txtrut.getText().trim()));
-            per.setNumero_mesa(Integer.parseInt(txtnom.getText().trim()));
-            per.setCapacidad_mesa(Integer.parseInt(txtape.getText().trim()));
+            per.setId_mesa(txt_id_mesa_mod_mesa.getText().trim());
+            per.setNumero_mesa(Integer.parseInt(txt_numero_mesa.getText().trim()));
+            per.setCapacidad_mesa(Integer.parseInt(txt_capacidad_mod_mesa.getText().trim()));
             
-              if(jComboBox1.getSelectedIndex() == 0)
+              if(cbo_estilo_mesa_mod_mesa.getSelectedIndex() == 0)
+            {
+                per.setEstilo_mesa("Sin definir");
+            }else {
+                per.setEstilo_mesa(cbo_estilo_mesa_mod_mesa.getSelectedItem().toString());
+            }
+              
+               if(  cbo_estado_mesa_mod_mesa.getSelectedIndex() == 0)
             {
                 per.setEn_uso("Sin definir");
             }else {
-                per.setEstilo_mesa(jComboBox1.getSelectedItem().toString());
-            }
-            per.setFecha_registro(txtcel.getText().trim());
-            if(jctipo_personal.getSelectedIndex() == 0)
-            {
-                per.setEn_uso("Sin definir");
-            }else {
-                per.setEn_uso(jctipo_personal.getSelectedItem().toString());
-            }
+                per.setEn_uso(cbo_estado_mesa_mod_mesa.getSelectedItem().toString());
+            }  
+               
+               
+               
+            per.setFecha_registro(txt_fecha_registro_mod_mesa.getText().trim());
+           
             if (Manejadora.actualizarMesa(per))
             {
                 JOptionPane.showMessageDialog(null, "Se Modifico Exitosamente");
-                txtrut.setText("");
-                txtnom.setText("");
-                txtape.setText("");
-                txtcel.setText("");
-                jctipo_personal.setSelectedIndex(0);
-                jComboBox1.setSelectedIndex(0);
+               // txtrut.setText("");
+                txt_numero_mesa.setText("");
+                txt_capacidad_mod_mesa.setText("");
+                txt_fecha_registro_mod_mesa.setText("");
+         //       jctipo_personal.setSelectedIndex(0);
+                cbo_estilo_mesa_mod_mesa.setSelectedIndex(0);
 
             } else {
                 JOptionPane.showMessageDialog(null, "no se pudo modificar el registro");
@@ -885,26 +971,20 @@ public class Modificar_Mesa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese Todos los Campos restantes.");
         }
 
-    }//GEN-LAST:event_jButton_modificarActionPerformed
+    }//GEN-LAST:event_btn_modificar_mod_mesaActionPerformed
 
-    private void jButton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_volverActionPerformed
+    private void btn_volver_mod_mesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver_mod_mesaActionPerformed
         // TODO add your handling code here:
-        Administrar_Mesas dp = new Administrar_Mesas();
-        dp.setVisible(true);
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton_volverActionPerformed
+    }//GEN-LAST:event_btn_volver_mod_mesaActionPerformed
 
-    private void txt_rutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_rutKeyTyped
+    private void txt_id_mesa_mod_mesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_mesa_mod_mesaKeyTyped
         // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if( n<'0' || n>'9' )evt.consume();
-    }//GEN-LAST:event_txt_rutKeyTyped
-
-    private void txt_dvrutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dvrutKeyTyped
-        // TODO add your handling code here:
-        char n = evt.getKeyChar();
-        if( n<'0' || n>'9' && n !='k' && n !='K' )evt.consume();
-    }//GEN-LAST:event_txt_dvrutKeyTyped
+       txt_id_mesa_mod_mesa.setEditable(false);
+       txt_id_mesa_mod_mesa.setEnabled(false);
+    }//GEN-LAST:event_txt_id_mesa_mod_mesaKeyTyped
 
     private void jButton_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrarActionPerformed
         // TODO add your handling code here:
@@ -935,42 +1015,54 @@ public class Modificar_Mesa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_mostrarActionPerformed
 
-    private void btn_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseReleased
+    private void btn_prove_mod_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prove_mod_mesaMouseReleased
         // TODO add your handling code here:
-        Interfaz_Agregar_Usuario menu = new Interfaz_Agregar_Usuario();
-        menu.setVisible(true);
+        Administrar_Proveedor adm_prove = new Administrar_Proveedor();
+        adm_prove.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_11MouseReleased
+    }//GEN-LAST:event_btn_prove_mod_mesaMouseReleased
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_datper_mod_mesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datper_mod_mesaMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_datper_mod_mesa);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_3,btn_4}, new JPanel[]{ind_1,ind_3, ind_4});
-        Vista.Menu_Restau dp = new Vista.Menu_Restau();
+        resetColor(new JPanel[]{btn_inicio_mod_mesa,btn_ingred_med_mesa,btn_admmes_mod_mesa}, new JPanel[]{ind_1,ind_3, ind_4});
+        Administrar_datos_personal dp = new Administrar_datos_personal();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_2MouseReleased
+    }//GEN-LAST:event_btn_datper_mod_mesaMouseReleased
 
-    private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
+    private void btn_admmes_mod_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_admmes_mod_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_4);
+        setColor(btn_admmes_mod_mesa);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_1}, new JPanel[]{ind_2,ind_3, ind_1});
-        Vista.Menu_Restau stock = new Vista.Menu_Restau();
-        stock.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_mod_mesa,btn_ingred_med_mesa,btn_inicio_mod_mesa}, new JPanel[]{ind_2,ind_3, ind_1});
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_4MousePressed
+    }//GEN-LAST:event_btn_admmes_mod_mesaMousePressed
 
-    private void btn_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MousePressed
+    private void btn_ingred_med_mesaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingred_med_mesaMousePressed
         // TODO add your handling code here:
-        setColor(btn_3);
+        setColor(btn_ingred_med_mesa);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_4}, new JPanel[]{ind_2,ind_1, ind_4});
-        Ventanas_Administracion.Ventana_administracion_ingrediente evento = new Ventanas_Administracion.Ventana_administracion_ingrediente();
+        resetColor(new JPanel[]{btn_datper_mod_mesa,btn_inicio_mod_mesa,btn_admmes_mod_mesa}, new JPanel[]{ind_2,ind_1, ind_4});
+       interfaz_Ingrediente evento = new interfaz_Ingrediente();
         evento.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_3MousePressed
+    }//GEN-LAST:event_btn_ingred_med_mesaMousePressed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        interfaz_Recetario adm_ingre = new interfaz_Recetario();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
 
     /**
      * @param args the command line arguments
@@ -1025,47 +1117,52 @@ public class Modificar_Mesa extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_11;
-    private javax.swing.JPanel btn_2;
-    private javax.swing.JPanel btn_3;
-    private javax.swing.JPanel btn_4;
+    private javax.swing.JPanel btn_admmes_mod_mesa;
+    private javax.swing.JButton btn_buscar_mod_mesa;
+    private javax.swing.JPanel btn_datper_mod_mesa;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel btn_ingred_med_mesa;
+    private javax.swing.JPanel btn_inicio_mod_mesa;
+    private javax.swing.JButton btn_modificar_mod_mesa;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JPanel btn_prove_mod_mesa;
+    private javax.swing.JPanel btn_recetario;
+    private javax.swing.JButton btn_volver_mod_mesa;
+    private javax.swing.JComboBox<String> cbo_estado_mesa_mod_mesa;
+    private javax.swing.JComboBox<String> cbo_estilo_mesa_mod_mesa;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
-    private javax.swing.JButton jButton_buscar;
-    private javax.swing.JButton jButton_modificar;
     private javax.swing.JButton jButton_mostrar;
-    private javax.swing.JButton jButton_volver;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_mostrar;
-    private javax.swing.JComboBox<String> jctipo_personal;
     private javax.swing.JLabel jl_info_mostrar;
     private javax.swing.JLabel jl_info_rut_buscar;
+    private javax.swing.JLabel lbl_adm_mesa_mod_mesa;
+    private javax.swing.JLabel lbl_capacidad_mod_mesa;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_mod_mesa;
+    private javax.swing.JLabel lbl_estado_mesa_mod_mesa;
+    private javax.swing.JLabel lbl_estilo_mesa_mod_mesa;
+    private javax.swing.JLabel lbl_fecha_registro_mod_mesa;
+    private javax.swing.JLabel lbl_fondo_interfaz_mod_mesa;
+    private javax.swing.JLabel lbl_icono_usuario;
+    private javax.swing.JLabel lbl_id_mesa_mod_mesa;
+    private javax.swing.JLabel lbl_ingre_mod_mesa;
+    private javax.swing.JLabel lbl_inicio_med_mesa;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_numero_mesa;
+    private javax.swing.JLabel lbl_numero_mesa_mod_mesa;
+    private javax.swing.JLabel lbl_proveedores_mod_mesa;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JLabel lbl_tipo_usuario;
+    private javax.swing.JLabel lbl_titulo_mod_mesa;
+    private javax.swing.JPanel pnl_barra_superior_mod_mesa;
     private javax.swing.JPanel side_pane;
     private javax.swing.JPanel side_pane1;
     private javax.swing.JPanel side_pane10;
@@ -1081,14 +1178,12 @@ public class Modificar_Mesa extends javax.swing.JFrame {
     private javax.swing.JPanel side_pane4;
     private javax.swing.JPanel side_pane5;
     private javax.swing.JPanel side_pane6;
-    private javax.swing.JPanel side_pane7;
     private javax.swing.JPanel side_pane8;
     private javax.swing.JPanel side_pane9;
-    private javax.swing.JTextField txt_dvrut;
-    private javax.swing.JTextField txt_rut;
-    private javax.swing.JTextField txtape;
-    private javax.swing.JTextField txtcel;
-    private javax.swing.JTextField txtnom;
-    private javax.swing.JTextField txtrut;
+    private javax.swing.JTextField txt_capacidad_mod_mesa;
+    private javax.swing.JFormattedTextField txt_fecha_registro_mod_mesa;
+    private javax.swing.JTextField txt_id_mesa_mod_mesa;
+    private javax.swing.JTextField txt_numero_mesa;
+    private javax.swing.JTextField txt_numero_mesa_mod_mesa;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,9 @@
  */
 package Ventanas_Administracion;
 
+import Vista.Factura.Interfaz_Factura;
+import Vista.Ingrediente.interfaz_Ingrediente;
+import Vista.Recetario.interfaz_Recetario;
 import Vista.Usuario.Interfaz_Agregar_Usuario;
 import Vista.Usuario.*;
 import java.awt.Color;
@@ -36,49 +39,56 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel26 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        side_pane1 = new javax.swing.JPanel();
-        side_pane = new javax.swing.JPanel();
-        btn_1 = new javax.swing.JPanel();
+        lbl_logorojo_restau = new javax.swing.JLabel();
+        lbl_ico_elim_perso = new javax.swing.JLabel();
+        lbl_ico_mod_perso = new javax.swing.JLabel();
+        lbl_ico_agr_perso = new javax.swing.JLabel();
+        lbl_logoazul_restau = new javax.swing.JLabel();
+        lbl_mod_perso = new javax.swing.JLabel();
+        lbl_agr_perso = new javax.swing.JLabel();
+        lbl_somb_agre_perso = new javax.swing.JLabel();
+        lbl_ico_mos_perso = new javax.swing.JLabel();
+        lbl_somb_mod_perso = new javax.swing.JLabel();
+        lbl_mos_perso = new javax.swing.JLabel();
+        lbl_somb_mos_perso = new javax.swing.JLabel();
+        lbl_elm_perso = new javax.swing.JLabel();
+        lbl_somb_elm_perso = new javax.swing.JLabel();
+        pnl_barra_amarilla_adm_perso = new javax.swing.JPanel();
+        pnl_barra_lateral_adm_perso = new javax.swing.JPanel();
+        btn_inicio_adm_perso = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        btn_exit = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        lbl_inicio_adm_perso = new javax.swing.JLabel();
+        btn_datper_adm_perso = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_3 = new javax.swing.JPanel();
+        lbl_dtos_perso_adm_perso = new javax.swing.JLabel();
+        btn_ingred_adm_perso = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        btn_4 = new javax.swing.JPanel();
+        lbl_ingre_adm_perso = new javax.swing.JLabel();
+        btn_admmes_adm_perso = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btn_11 = new javax.swing.JPanel();
+        lbl_adm_mesa_adm_perso = new javax.swing.JLabel();
+        btn_prove_adm_perso = new javax.swing.JPanel();
         ind_11 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lbl_proveedores_adm_perso = new javax.swing.JLabel();
+        btn_exit = new javax.swing.JLabel();
+        btn_recetario = new javax.swing.JPanel();
+        ind_12 = new javax.swing.JPanel();
+        lbl_recetario = new javax.swing.JLabel();
+        btn_modulo_documento = new javax.swing.JPanel();
+        ind_13 = new javax.swing.JPanel();
+        lbl_documentos = new javax.swing.JLabel();
+        pnl_barra_superior_adm_perso = new javax.swing.JPanel();
+        lbl_tipo_usuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btn_7 = new javax.swing.JPanel();
+        lbl_titulo_adm_perso = new javax.swing.JLabel();
+        lbl_fondo_interfaz_adm_perso = new javax.swing.JLabel();
+        btnAgregar_perso = new javax.swing.JPanel();
         ind_7 = new javax.swing.JPanel();
-        btn_8 = new javax.swing.JPanel();
+        btnModificar_perso = new javax.swing.JPanel();
         ind_8 = new javax.swing.JPanel();
-        btn_9 = new javax.swing.JPanel();
+        btnMostrar_perso = new javax.swing.JPanel();
         ind_9 = new javax.swing.JPanel();
-        btn_10 = new javax.swing.JPanel();
+        btnEliminar_perso = new javax.swing.JPanel();
         ind_10 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,66 +97,65 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("ADMINISTRAR PERSONAL");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+        lbl_logorojo_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_final.png"))); // NOI18N
+        lbl_logorojo_restau.setText("jLabel17");
+        getContentPane().add(lbl_logorojo_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 260, 320));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-eliminar-64.png"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, -1, -1));
+        lbl_ico_elim_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-eliminar-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_elim_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-editar-propiedad-64.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 70, -1));
+        lbl_ico_mod_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-editar-propiedad-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_mod_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 70, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-añadir-64.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
+        lbl_ico_agr_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-añadir-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_agr_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
-        jLabel17.setText("jLabel17");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 205, 80));
+        lbl_logoazul_restau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_superior_blanco.png"))); // NOI18N
+        lbl_logoazul_restau.setText("jLabel17");
+        getContentPane().add(lbl_logoazul_restau, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 205, 80));
 
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Modificar Personal");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 110, -1));
+        lbl_mod_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_mod_perso.setText("Modificar Personal");
+        getContentPane().add(lbl_mod_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 110, 20));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Agregar Personal");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+        lbl_agr_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_agr_perso.setText("Agregar Personal");
+        getContentPane().add(lbl_agr_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 130, 20));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 100, -1));
+        lbl_somb_agre_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_agre_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 110, 90));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-mostrar-propiedad-64.png"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        lbl_ico_mos_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/icons8-mostrar-propiedad-64.png"))); // NOI18N
+        getContentPane().add(lbl_ico_mos_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 100, -1));
+        lbl_somb_mod_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_mod_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 110, 90));
 
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Mostrar Personal");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 100, -1));
+        lbl_mos_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_mos_perso.setText("Mostrar Personal");
+        getContentPane().add(lbl_mos_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 100, 20));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 100, -1));
+        lbl_somb_mos_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_mos_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 100, -1));
 
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Eliminar Personal");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 100, -1));
+        lbl_elm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_elm_perso.setText("Eliminar Personal");
+        getContentPane().add(lbl_elm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 130, -1));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 100, -1));
+        lbl_somb_elm_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconos/transparencia_button_FINALL.png"))); // NOI18N
+        getContentPane().add(lbl_somb_elm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 100, -1));
 
-        side_pane1.setBackground(new java.awt.Color(251, 243, 0));
-        side_pane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(side_pane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 10, 500));
+        pnl_barra_amarilla_adm_perso.setBackground(new java.awt.Color(251, 243, 0));
+        pnl_barra_amarilla_adm_perso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(pnl_barra_amarilla_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 10, 500));
 
-        side_pane.setBackground(new java.awt.Color(23, 35, 51));
-        side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnl_barra_lateral_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_lateral_adm_perso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_1.setBackground(new java.awt.Color(23, 35, 51));
-        btn_1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inicio_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        btn_inicio_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_1MousePressed(evt);
+                btn_inicio_adm_persoMousePressed(evt);
             }
         });
 
@@ -164,45 +173,37 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Inicio");
+        lbl_inicio_adm_perso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_inicio_adm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_inicio_adm_perso.setText("Inicio");
 
-        javax.swing.GroupLayout btn_1Layout = new javax.swing.GroupLayout(btn_1);
-        btn_1.setLayout(btn_1Layout);
-        btn_1Layout.setHorizontalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_inicio_adm_persoLayout = new javax.swing.GroupLayout(btn_inicio_adm_perso);
+        btn_inicio_adm_perso.setLayout(btn_inicio_adm_persoLayout);
+        btn_inicio_adm_persoLayout.setHorizontalGroup(
+            btn_inicio_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lbl_inicio_adm_perso)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        btn_1Layout.setVerticalGroup(
-            btn_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_1Layout.createSequentialGroup()
+        btn_inicio_adm_persoLayout.setVerticalGroup(
+            btn_inicio_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_inicio_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_1Layout.createSequentialGroup()
+            .addGroup(btn_inicio_adm_persoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_inicio_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, -1));
+        pnl_barra_lateral_adm_perso.add(btn_inicio_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, -1));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
-        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_exitMousePressed(evt);
-            }
-        });
-        side_pane.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
-
-        btn_2.setBackground(new java.awt.Color(251, 243, 0));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_datper_adm_perso.setBackground(new java.awt.Color(251, 243, 0));
+        btn_datper_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_datper_adm_persoMouseReleased(evt);
             }
         });
 
@@ -220,35 +221,35 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setText("Datos de personal");
+        lbl_dtos_perso_adm_perso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_dtos_perso_adm_perso.setText("Datos de personal");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_datper_adm_persoLayout = new javax.swing.GroupLayout(btn_datper_adm_perso);
+        btn_datper_adm_perso.setLayout(btn_datper_adm_persoLayout);
+        btn_datper_adm_persoLayout.setHorizontalGroup(
+            btn_datper_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addComponent(lbl_dtos_perso_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_datper_adm_persoLayout.setVerticalGroup(
+            btn_datper_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_datper_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_datper_adm_persoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_dtos_perso_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
+        pnl_barra_lateral_adm_perso.add(btn_datper_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, -1));
 
-        btn_3.setBackground(new java.awt.Color(23, 35, 51));
-        btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ingred_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        btn_ingred_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_3MousePressed(evt);
+                btn_ingred_adm_persoMousePressed(evt);
             }
         });
 
@@ -266,35 +267,35 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ingredientes");
+        lbl_ingre_adm_perso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_ingre_adm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ingre_adm_perso.setText("Ingredientes");
 
-        javax.swing.GroupLayout btn_3Layout = new javax.swing.GroupLayout(btn_3);
-        btn_3.setLayout(btn_3Layout);
-        btn_3Layout.setHorizontalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_ingred_adm_persoLayout = new javax.swing.GroupLayout(btn_ingred_adm_perso);
+        btn_ingred_adm_perso.setLayout(btn_ingred_adm_persoLayout);
+        btn_ingred_adm_persoLayout.setHorizontalGroup(
+            btn_ingred_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ingre_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
-        btn_3Layout.setVerticalGroup(
-            btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_3Layout.createSequentialGroup()
-                .addGroup(btn_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btn_ingred_adm_persoLayout.setVerticalGroup(
+            btn_ingred_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ingred_adm_persoLayout.createSequentialGroup()
+                .addGroup(btn_ingred_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_ingre_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        side_pane.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
+        pnl_barra_lateral_adm_perso.add(btn_ingred_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 40));
 
-        btn_4.setBackground(new java.awt.Color(23, 35, 51));
-        btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_admmes_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        btn_admmes_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_4MousePressed(evt);
+                btn_admmes_adm_persoMousePressed(evt);
             }
         });
 
@@ -312,37 +313,37 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Administrar Mesas");
+        lbl_adm_mesa_adm_perso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_adm_mesa_adm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_adm_mesa_adm_perso.setText("Administrar Mesas");
 
-        javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
-        btn_4.setLayout(btn_4Layout);
-        btn_4Layout.setHorizontalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_admmes_adm_persoLayout = new javax.swing.GroupLayout(btn_admmes_adm_perso);
+        btn_admmes_adm_perso.setLayout(btn_admmes_adm_persoLayout);
+        btn_admmes_adm_persoLayout.setHorizontalGroup(
+            btn_admmes_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(lbl_adm_mesa_adm_perso)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        btn_4Layout.setVerticalGroup(
-            btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_4Layout.createSequentialGroup()
+        btn_admmes_adm_persoLayout.setVerticalGroup(
+            btn_admmes_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_admmes_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_4Layout.createSequentialGroup()
+            .addGroup(btn_admmes_adm_persoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_adm_mesa_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
+        pnl_barra_lateral_adm_perso.add(btn_admmes_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
 
-        btn_11.setBackground(new java.awt.Color(23, 35, 51));
-        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_prove_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        btn_prove_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_11MouseReleased(evt);
+                btn_prove_adm_persoMouseReleased(evt);
             }
         });
 
@@ -360,82 +361,196 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Proveedores");
+        lbl_proveedores_adm_perso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_proveedores_adm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_proveedores_adm_perso.setText("Proveedores");
 
-        javax.swing.GroupLayout btn_11Layout = new javax.swing.GroupLayout(btn_11);
-        btn_11.setLayout(btn_11Layout);
-        btn_11Layout.setHorizontalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_prove_adm_persoLayout = new javax.swing.GroupLayout(btn_prove_adm_perso);
+        btn_prove_adm_perso.setLayout(btn_prove_adm_persoLayout);
+        btn_prove_adm_persoLayout.setHorizontalGroup(
+            btn_prove_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_proveedores_adm_perso, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        btn_11Layout.setVerticalGroup(
-            btn_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_11Layout.createSequentialGroup()
+        btn_prove_adm_persoLayout.setVerticalGroup(
+            btn_prove_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_prove_adm_persoLayout.createSequentialGroup()
                 .addComponent(ind_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_11Layout.createSequentialGroup()
+            .addGroup(btn_prove_adm_persoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_proveedores_adm_perso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
+        pnl_barra_lateral_adm_perso.add(btn_prove_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
 
-        getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
-
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
-            }
-        });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
+        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                btn_exitMousePressed(evt);
+            }
+        });
+        pnl_barra_lateral_adm_perso.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 30, 46));
+
+        btn_recetario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_recetario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_recetarioMouseReleased(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Usuario: Administrador");
+        ind_12.setOpaque(false);
+        ind_12.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_12Layout = new javax.swing.GroupLayout(ind_12);
+        ind_12.setLayout(ind_12Layout);
+        ind_12Layout.setHorizontalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_12Layout.setVerticalGroup(
+            ind_12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_recetario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_recetario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_recetario.setText("Recetario");
+
+        javax.swing.GroupLayout btn_recetarioLayout = new javax.swing.GroupLayout(btn_recetario);
+        btn_recetario.setLayout(btn_recetarioLayout);
+        btn_recetarioLayout.setHorizontalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        btn_recetarioLayout.setVerticalGroup(
+            btn_recetarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addComponent(ind_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_recetarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_recetario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_adm_perso.add(btn_recetario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, -1));
+
+        btn_modulo_documento.setBackground(new java.awt.Color(23, 35, 51));
+        btn_modulo_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_modulo_documentoMouseReleased(evt);
+            }
+        });
+
+        ind_13.setOpaque(false);
+        ind_13.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_13Layout = new javax.swing.GroupLayout(ind_13);
+        ind_13.setLayout(ind_13Layout);
+        ind_13Layout.setHorizontalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_13Layout.setVerticalGroup(
+            ind_13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        lbl_documentos.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_documentos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_documentos.setText("Documentos");
+
+        javax.swing.GroupLayout btn_modulo_documentoLayout = new javax.swing.GroupLayout(btn_modulo_documento);
+        btn_modulo_documento.setLayout(btn_modulo_documentoLayout);
+        btn_modulo_documentoLayout.setHorizontalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        btn_modulo_documentoLayout.setVerticalGroup(
+            btn_modulo_documentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addComponent(ind_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_modulo_documentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_documentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnl_barra_lateral_adm_perso.add(btn_modulo_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, -1));
+
+        getContentPane().add(pnl_barra_lateral_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 590));
+
+        pnl_barra_superior_adm_perso.setBackground(new java.awt.Color(23, 35, 51));
+        pnl_barra_superior_adm_perso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_barra_superior_adm_persoMouseDragged(evt);
+            }
+        });
+        pnl_barra_superior_adm_perso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnl_barra_superior_adm_persoMousePressed(evt);
+            }
+        });
+
+        lbl_tipo_usuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lbl_tipo_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tipo_usuario.setText("Usuario: Administrador");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_User_48px.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(750, Short.MAX_VALUE)
+        lbl_titulo_adm_perso.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_titulo_adm_perso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_titulo_adm_perso.setText("ADMINISTRAR PERSONAL");
+
+        javax.swing.GroupLayout pnl_barra_superior_adm_persoLayout = new javax.swing.GroupLayout(pnl_barra_superior_adm_perso);
+        pnl_barra_superior_adm_perso.setLayout(pnl_barra_superior_adm_persoLayout);
+        pnl_barra_superior_adm_persoLayout.setHorizontalGroup(
+            pnl_barra_superior_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_barra_superior_adm_persoLayout.createSequentialGroup()
+                .addContainerGap(270, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_adm_perso)
+                .addGap(165, 165, 165)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        pnl_barra_superior_adm_persoLayout.setVerticalGroup(
+            pnl_barra_superior_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_adm_persoLayout.createSequentialGroup()
                 .addGap(0, 42, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnl_barra_superior_adm_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbl_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_barra_superior_adm_persoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_titulo_adm_perso)
+                .addGap(28, 28, 28))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
+        getContentPane().add(pnl_barra_superior_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 950, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, 500));
+        lbl_fondo_interfaz_adm_perso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_personal_final.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo_interfaz_adm_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, 500));
 
-        btn_7.setBackground(new java.awt.Color(26, 146, 167));
-        btn_7.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregar_perso.setBackground(new java.awt.Color(26, 146, 167));
+        btnAgregar_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_7MousePressed(evt);
+                btnAgregar_persoMousePressed(evt);
             }
         });
 
@@ -453,27 +568,27 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_7Layout = new javax.swing.GroupLayout(btn_7);
-        btn_7.setLayout(btn_7Layout);
-        btn_7Layout.setHorizontalGroup(
-            btn_7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_7Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnAgregar_persoLayout = new javax.swing.GroupLayout(btnAgregar_perso);
+        btnAgregar_perso.setLayout(btnAgregar_persoLayout);
+        btnAgregar_persoLayout.setHorizontalGroup(
+            btnAgregar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAgregar_persoLayout.createSequentialGroup()
                 .addComponent(ind_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(97, Short.MAX_VALUE))
         );
-        btn_7Layout.setVerticalGroup(
-            btn_7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_7Layout.createSequentialGroup()
+        btnAgregar_persoLayout.setVerticalGroup(
+            btnAgregar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAgregar_persoLayout.createSequentialGroup()
                 .addComponent(ind_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 100, 70));
+        getContentPane().add(btnAgregar_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 100, 80));
 
-        btn_8.setBackground(new java.awt.Color(26, 146, 167));
-        btn_8.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnModificar_perso.setBackground(new java.awt.Color(26, 146, 167));
+        btnModificar_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_8MousePressed(evt);
+                btnModificar_persoMousePressed(evt);
             }
         });
 
@@ -491,27 +606,27 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_8Layout = new javax.swing.GroupLayout(btn_8);
-        btn_8.setLayout(btn_8Layout);
-        btn_8Layout.setHorizontalGroup(
-            btn_8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_8Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnModificar_persoLayout = new javax.swing.GroupLayout(btnModificar_perso);
+        btnModificar_perso.setLayout(btnModificar_persoLayout);
+        btnModificar_persoLayout.setHorizontalGroup(
+            btnModificar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnModificar_persoLayout.createSequentialGroup()
                 .addComponent(ind_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
-        btn_8Layout.setVerticalGroup(
-            btn_8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_8Layout.createSequentialGroup()
+        btnModificar_persoLayout.setVerticalGroup(
+            btnModificar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnModificar_persoLayout.createSequentialGroup()
                 .addComponent(ind_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 110, 70));
+        getContentPane().add(btnModificar_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 100, 80));
 
-        btn_9.setBackground(new java.awt.Color(26, 146, 167));
-        btn_9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMostrar_perso.setBackground(new java.awt.Color(26, 146, 167));
+        btnMostrar_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_9MousePressed(evt);
+                btnMostrar_persoMousePressed(evt);
             }
         });
 
@@ -529,27 +644,27 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_9Layout = new javax.swing.GroupLayout(btn_9);
-        btn_9.setLayout(btn_9Layout);
-        btn_9Layout.setHorizontalGroup(
-            btn_9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_9Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnMostrar_persoLayout = new javax.swing.GroupLayout(btnMostrar_perso);
+        btnMostrar_perso.setLayout(btnMostrar_persoLayout);
+        btnMostrar_persoLayout.setHorizontalGroup(
+            btnMostrar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnMostrar_persoLayout.createSequentialGroup()
                 .addComponent(ind_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
-        btn_9Layout.setVerticalGroup(
-            btn_9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_9Layout.createSequentialGroup()
+        btnMostrar_persoLayout.setVerticalGroup(
+            btnMostrar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnMostrar_persoLayout.createSequentialGroup()
                 .addComponent(ind_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, -1));
+        getContentPane().add(btnMostrar_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 110, 80));
 
-        btn_10.setBackground(new java.awt.Color(26, 146, 167));
-        btn_10.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminar_perso.setBackground(new java.awt.Color(26, 146, 167));
+        btnEliminar_perso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_10MousePressed(evt);
+                btnEliminar_persoMousePressed(evt);
             }
         });
 
@@ -567,43 +682,43 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout btn_10Layout = new javax.swing.GroupLayout(btn_10);
-        btn_10.setLayout(btn_10Layout);
-        btn_10Layout.setHorizontalGroup(
-            btn_10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_10Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnEliminar_persoLayout = new javax.swing.GroupLayout(btnEliminar_perso);
+        btnEliminar_perso.setLayout(btnEliminar_persoLayout);
+        btnEliminar_persoLayout.setHorizontalGroup(
+            btnEliminar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnEliminar_persoLayout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(ind_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        btn_10Layout.setVerticalGroup(
-            btn_10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_10Layout.createSequentialGroup()
+        btnEliminar_persoLayout.setVerticalGroup(
+            btnEliminar_persoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnEliminar_persoLayout.createSequentialGroup()
                 .addComponent(ind_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btn_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 90, 70));
+        getContentPane().add(btnEliminar_perso, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 100, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     int xx,xy;
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void pnl_barra_superior_adm_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_adm_persoMousePressed
         // TODO add your handling code here:
         //drag this pane
         xx = evt.getX();
         xy = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }//GEN-LAST:event_pnl_barra_superior_adm_persoMousePressed
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void pnl_barra_superior_adm_persoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_barra_superior_adm_persoMouseDragged
         // TODO add your handling code here:
         
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }//GEN-LAST:event_pnl_barra_superior_adm_persoMouseDragged
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
         // TODO add your handling code here:
@@ -614,77 +729,89 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_exitMousePressed
 
-    private void btn_7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_7MousePressed
+    private void btnAgregar_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_persoMousePressed
         // TODO add your handling code here:
         Interfaz_Agregar_Usuario ap = new Interfaz_Agregar_Usuario();
         ap.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_7MousePressed
+    }//GEN-LAST:event_btnAgregar_persoMousePressed
 
-    private void btn_8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_8MousePressed
+    private void btnModificar_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificar_persoMousePressed
         
         
         Interfaz_Modificar_Usuario mp = new Interfaz_Modificar_Usuario();
         mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_8MousePressed
+    }//GEN-LAST:event_btnModificar_persoMousePressed
 
-    private void btn_9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_9MousePressed
+    private void btnMostrar_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrar_persoMousePressed
         Interfaz_mostrar_Usuario mp = new Interfaz_mostrar_Usuario();
         mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_9MousePressed
+    }//GEN-LAST:event_btnMostrar_persoMousePressed
 
-    private void btn_10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_10MousePressed
+    private void btnEliminar_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar_persoMousePressed
       Interfaz_Eliminar_Usuario ep = new  Interfaz_Eliminar_Usuario();
         ep.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_10MousePressed
+    }//GEN-LAST:event_btnEliminar_persoMousePressed
 
-    private void btn_11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseReleased
+    private void btn_prove_adm_persoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prove_adm_persoMouseReleased
         // TODO add your handling code here:
-        Interfaz_Agregar_Usuario menu = new Interfaz_Agregar_Usuario();
-        menu.setVisible(true);
+        Administrar_Proveedor adm_provee = new Administrar_Proveedor();
+        adm_provee.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_11MouseReleased
+    }//GEN-LAST:event_btn_prove_adm_persoMouseReleased
 
-    private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
+    private void btn_admmes_adm_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_admmes_adm_persoMousePressed
         // TODO add your handling code here:
-        setColor(btn_4);
+        setColor(btn_admmes_adm_perso);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_3,btn_1}, new JPanel[]{ind_2,ind_3, ind_1});
-        Vista.Menu_Restau stock = new Vista.Menu_Restau();
-        stock.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_adm_perso,btn_ingred_adm_perso,btn_inicio_adm_perso}, new JPanel[]{ind_2,ind_3, ind_1});
+        Administrar_Mesas adm_mesa = new Administrar_Mesas();
+        adm_mesa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_4MousePressed
+    }//GEN-LAST:event_btn_admmes_adm_persoMousePressed
 
-    private void btn_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MousePressed
+    private void btn_ingred_adm_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingred_adm_persoMousePressed
         // TODO add your handling code here:
-        setColor(btn_3);
+        setColor(btn_ingred_adm_perso);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_4}, new JPanel[]{ind_2,ind_1, ind_4});
-        Ventanas_Administracion.Ventana_administracion_ingrediente evento = new Ventanas_Administracion.Ventana_administracion_ingrediente();
-        evento.setVisible(true);
+        resetColor(new JPanel[]{btn_datper_adm_perso,btn_inicio_adm_perso,btn_admmes_adm_perso}, new JPanel[]{ind_2,ind_1, ind_4});
+       interfaz_Ingrediente adm_ingre = new interfaz_Ingrediente();
+        adm_ingre.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_3MousePressed
+    }//GEN-LAST:event_btn_ingred_adm_persoMousePressed
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_datper_adm_persoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datper_adm_persoMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_datper_adm_perso);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_3,btn_4}, new JPanel[]{ind_1,ind_3, ind_4});
-        Vista.Menu_Restau dp = new Vista.Menu_Restau();
+        resetColor(new JPanel[]{btn_inicio_adm_perso,btn_ingred_adm_perso,btn_admmes_adm_perso}, new JPanel[]{ind_1,ind_3, ind_4});
+        Ventanas_Administracion.Administrar_datos_personal dp = new Ventanas_Administracion.Administrar_datos_personal();
         dp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_2MouseReleased
+    }//GEN-LAST:event_btn_datper_adm_persoMouseReleased
 
-    private void btn_1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MousePressed
+    private void btn_inicio_adm_persoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_adm_persoMousePressed
         // TODO add your handling code here:
 
-        Menu_principal evento = new Menu_principal();
-        evento.setVisible(true);
+        Menu_principal mp = new Menu_principal();
+        mp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_1MousePressed
+    }//GEN-LAST:event_btn_inicio_adm_persoMousePressed
+
+    private void btn_recetarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recetarioMouseReleased
+        interfaz_Recetario adm_ingre = new interfaz_Recetario();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_recetarioMouseReleased
+
+    private void btn_modulo_documentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modulo_documentoMouseReleased
+        Interfaz_Factura adm_ingre = new Interfaz_Factura();
+        adm_ingre.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_modulo_documentoMouseReleased
 
     /**
      * @param args the command line arguments
@@ -771,49 +898,56 @@ public class Administrar_datos_personal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_10;
-    private javax.swing.JPanel btn_11;
-    private javax.swing.JPanel btn_2;
-    private javax.swing.JPanel btn_3;
-    private javax.swing.JPanel btn_4;
-    private javax.swing.JPanel btn_7;
-    private javax.swing.JPanel btn_8;
-    private javax.swing.JPanel btn_9;
+    private javax.swing.JPanel btnAgregar_perso;
+    private javax.swing.JPanel btnEliminar_perso;
+    private javax.swing.JPanel btnModificar_perso;
+    private javax.swing.JPanel btnMostrar_perso;
+    private javax.swing.JPanel btn_admmes_adm_perso;
+    private javax.swing.JPanel btn_datper_adm_perso;
     private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel btn_ingred_adm_perso;
+    private javax.swing.JPanel btn_inicio_adm_perso;
+    private javax.swing.JPanel btn_modulo_documento;
+    private javax.swing.JPanel btn_prove_adm_perso;
+    private javax.swing.JPanel btn_recetario;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_10;
     private javax.swing.JPanel ind_11;
+    private javax.swing.JPanel ind_12;
+    private javax.swing.JPanel ind_13;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_7;
     private javax.swing.JPanel ind_8;
     private javax.swing.JPanel ind_9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel side_pane;
-    private javax.swing.JPanel side_pane1;
+    private javax.swing.JLabel lbl_adm_mesa_adm_perso;
+    private javax.swing.JLabel lbl_agr_perso;
+    private javax.swing.JLabel lbl_documentos;
+    private javax.swing.JLabel lbl_dtos_perso_adm_perso;
+    private javax.swing.JLabel lbl_elm_perso;
+    private javax.swing.JLabel lbl_fondo_interfaz_adm_perso;
+    private javax.swing.JLabel lbl_ico_agr_perso;
+    private javax.swing.JLabel lbl_ico_elim_perso;
+    private javax.swing.JLabel lbl_ico_mod_perso;
+    private javax.swing.JLabel lbl_ico_mos_perso;
+    private javax.swing.JLabel lbl_ingre_adm_perso;
+    private javax.swing.JLabel lbl_inicio_adm_perso;
+    private javax.swing.JLabel lbl_logoazul_restau;
+    private javax.swing.JLabel lbl_logorojo_restau;
+    private javax.swing.JLabel lbl_mod_perso;
+    private javax.swing.JLabel lbl_mos_perso;
+    private javax.swing.JLabel lbl_proveedores_adm_perso;
+    private javax.swing.JLabel lbl_recetario;
+    private javax.swing.JLabel lbl_somb_agre_perso;
+    private javax.swing.JLabel lbl_somb_elm_perso;
+    private javax.swing.JLabel lbl_somb_mod_perso;
+    private javax.swing.JLabel lbl_somb_mos_perso;
+    private javax.swing.JLabel lbl_tipo_usuario;
+    private javax.swing.JLabel lbl_titulo_adm_perso;
+    private javax.swing.JPanel pnl_barra_amarilla_adm_perso;
+    private javax.swing.JPanel pnl_barra_lateral_adm_perso;
+    private javax.swing.JPanel pnl_barra_superior_adm_perso;
     // End of variables declaration//GEN-END:variables
 }

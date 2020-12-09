@@ -6,7 +6,7 @@ package Clases;
  */
 public class Mesa {
     
-    private int id_mesa; 
+    private String id_mesa; 
     private int numero_mesa;
     private int capacidad_mesa;
     private String estilo_mesa;
@@ -16,11 +16,11 @@ public class Mesa {
     public Mesa() {
     }
 
-    public int getId_mesa() {
+    public String getId_mesa() {
         return id_mesa;
     }
 
-    public void setId_mesa(int id_mesa) {
+    public void setId_mesa(String id_mesa) {
         this.id_mesa = id_mesa;
     }
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Clases;
 import Clases.Ingrediente;
 import Clases.Conexion_BD;
@@ -20,11 +15,14 @@ public class Manejadora {
         {
             Connection conn = Conexion_BD.getConexion_BD();
             
-            String query = "insert into INGREDIENTE (id_ingrediente,nombre_ingrediente,stock) values (?,?,?)";
+            String query = "insert into INGREDIENTE (id_ingrediente,nombre_ingrediente,tipo_ingrediente,cantidad_ingrediente,unidad_medida) values (?,?,?,?,?)";
             PreparedStatement insertar = conn.prepareCall(query);
             insertar.setInt(1, p.getId_ingrediente());
             insertar.setString(2, p.getNombre_ingrediente());
-            insertar.setInt(3, p.getStock());        
+            insertar.setString(3, p.getTipo_ingrediente());    
+            insertar.setInt(4, p.getCantidad_ingrediente());
+            insertar.setString(5, p.getUnidad_medida());    
+        
             insertar.execute();
             insertar.close();
             conn.close();
@@ -35,9 +33,7 @@ public class Manejadora {
             System.out.println("Error de sql" +e.getMessage());
             return false;
         }
-    }
-
-     
+    }   
      
     public static void eliminarIngrediente(int fila,String nom_prod) throws ClassNotFoundException {
     
@@ -45,7 +41,7 @@ public class Manejadora {
         try
         {
         
-        PreparedStatement pst = reg.prepareStatement("DELETE FROM INGREDIENTE where nombre_ingrediente=('"+nom_prod+"')");
+        PreparedStatement pst = reg.prepareStatement("DELETE FROM INGREDIENTE where id_ingrediente=('"+nom_prod+"')");
         pst.executeUpdate();
   
         }catch(SQLException e)
@@ -75,7 +71,25 @@ public class Manejadora {
         ResultSet rs=null;
         try{
         Connection conexion = Conexion_BD.getConexion_BD();
-        String query = "select * from INGREDIENTE where nombre_ingrediente=('"+nombre_ingrediente+"')";
+        String query = "select * from INGREDIENTE where nombre_ingrediente like '"+nombre_ingrediente+"%' ";
+        PreparedStatement busca = conexion.prepareStatement(query);
+        rs = busca.executeQuery(); 
+        
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    }  
+    
+    
+    public static ResultSet buscarIngrediente_grupo (String tipo_ingrediente) throws ClassNotFoundException
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from INGREDIENTE where tipo_ingrediente=('"+tipo_ingrediente+"')";
         PreparedStatement busca = conexion.prepareStatement(query);
         rs = busca.executeQuery(); 
         
@@ -91,14 +105,16 @@ public class Manejadora {
     {
         try 
         {
-            String v_sub_nomprod = p.getNombre_ingrediente();
+            int v_sub_nomprod = p.getId_ingrediente();
             Connection conn = Conexion_BD.getConexion_BD();
             
-            String query = "update INGREDIENTE set ID_INGREDIENTE=(?), NOMBRE_INGREDIENTE=?, STOCK=? where NOMBRE_INGREDIENTE =('" +v_sub_nomprod+"')";
+            String query = "update INGREDIENTE set ID_INGREDIENTE=(?), NOMBRE_INGREDIENTE=?, TIPO_INGREDIENTE=?, CANTIDAD_INGREDIENTE=?, UNIDAD_MEDIDA=? where id_ingrediente =('" +v_sub_nomprod+"')";
             PreparedStatement insertar = conn.prepareCall(query);
             insertar.setInt(1, p.getId_ingrediente());
             insertar.setString(2, p.getNombre_ingrediente());
-            insertar.setInt(3, p.getStock());
+            insertar.setString(3, p.getTipo_ingrediente());
+            insertar.setInt(4, p.getCantidad_ingrediente());
+            insertar.setString(5, p.getUnidad_medida());
             insertar.execute();
             insertar.close();
             conn.close();
@@ -148,7 +164,7 @@ public class Manejadora {
         ResultSet rs=null;
         try{
         Connection conexion = Conexion_BD.getConexion_BD();
-        String query = "select * from Personal";
+        String query = "select * from Personal ORDER BY TIPO_PERSONAL ASC";
         PreparedStatement mostrar = conexion.prepareStatement(query);
         rs = mostrar.executeQuery(); 
         }
@@ -159,12 +175,12 @@ public class Manejadora {
         return(rs);
     }
     
-    public static ResultSet buscarPersonal(String rut, String dvrut) throws ClassNotFoundException
+    public static ResultSet buscarPersonal(String rut) throws ClassNotFoundException
     {
         ResultSet rs=null;
         try{
         Connection conexion = Conexion_BD.getConexion_BD();
-        String query = "select * from Personal where rut_personal='"+rut+"' and dvrut_personal='" + dvrut +"'";
+        String query = "select * from Personal where rut_personal='"+rut+"' ";
         PreparedStatement busca = conexion.prepareStatement(query);
         rs = busca.executeQuery(); 
         
@@ -231,7 +247,7 @@ public class Manejadora {
             
             String query = "insert into MESA (id_mesa,numero_mesa,capacidad_mesa,estilo_mesa,fecha_registro_mesa,en_uso) values (?,?,?,?,?,?)";
             PreparedStatement insertar = conn.prepareCall(query);
-            insertar.setInt(1, p.getId_mesa());
+            insertar.setString(1, p.getId_mesa());
             insertar.setInt(2, p.getNumero_mesa());
             insertar.setInt(3, p.getCapacidad_mesa());
             insertar.setString(4, p.getEstilo_mesa());
@@ -303,12 +319,12 @@ public class Manejadora {
     {
         try 
         {
-            int v_sub_rut = p.getId_mesa();
+            String id_mesa = p.getId_mesa();
             Connection conn = Conexion_BD.getConexion_BD();
             
-            String query = "update MESA set id_mesa=?,NUMERO_MESA=?, CAPACIDAD_MESA=?, ESTILO_MESA=?, FECHA_REGISTRO=?, EN_USO=? where id_mesa=" +v_sub_rut+" ";
+            String query = "update MESA set id_mesa=?,NUMERO_MESA=?, CAPACIDAD_MESA=?, ESTILO_MESA=?, FECHA_REGISTRO_MESA=?, EN_USO=? where id_mesa=" +id_mesa+" ";
             PreparedStatement insertar = conn.prepareCall(query);
-            insertar.setInt(1, p.getId_mesa());
+            insertar.setString(1, p.getId_mesa());
             insertar.setInt(2, p.getNumero_mesa());
             insertar.setInt(3, p.getCapacidad_mesa());
             insertar.setString(4, p.getEstilo_mesa());
@@ -329,17 +345,14 @@ public class Manejadora {
         
         //CRUD PROVEEDOR
         
-        
-           
-        
-        
+    
          public static boolean agregarProveedor (Proveedor p)
          {
         try 
         {
             Connection conn = Conexion_BD.getConexion_BD();
             
-            String query = "insert into PROVEEDOR (id_proveedor,nombre_proveedor,telefono_proveedor, direccion_proveedor, descripcion_proveedor, email_proveedor) values (?,?,?,?,?,?)";
+            String query = "insert into PROVEEDOR (id_proveedor,nombre_proveedor,telefono_proveedor, direccion_proveedor, descripcion_proveedor, email_proveedor,tipo_proveedor) values (?,?,?,?,?,?,?)";
             PreparedStatement insertar = conn.prepareCall(query);
             insertar.setInt(1, p.getId_proveedor());
             insertar.setString(2, p.getNom_proveedor());
@@ -347,6 +360,8 @@ public class Manejadora {
             insertar.setString(4, p.getDireccion_proveedor());
             insertar.setString(5, p.getDescripcion_proveedor());
             insertar.setString(6, p.getEmail_proveedor());
+            insertar.setString(7, p.getTipo_proveedor());
+            
             insertar.execute();
             insertar.close();
             conn.close();
@@ -392,12 +407,12 @@ public class Manejadora {
         return(rs);
     } 
           
-           public static ResultSet buscarProveedor(String numero_mesa) throws ClassNotFoundException    
+           public static ResultSet buscarProveedor(String nombre_proveedor) throws ClassNotFoundException    
     {
         ResultSet rs=null;
         try{
         Connection conexion = Conexion_BD.getConexion_BD();
-        String query = "select * from MESA where nombre_proveedor = ('"+numero_mesa+"')";
+        String query = "select * from PROVEEDOR where nombre_proveedor like '"+nombre_proveedor+"%'";
         PreparedStatement busca = conexion.prepareStatement(query);
         rs = busca.executeQuery(); 
         
@@ -414,10 +429,10 @@ public class Manejadora {
     {
         try 
         {
-            int v_sub_rut = p.getId_proveedor();
+            int id_prov = p.getId_proveedor();
             Connection conn = Conexion_BD.getConexion_BD();
             
-            String query = "update PROVEEDOR set id_proveedor=?,nombre_proveedor=?, telefono_proveedor=?, direccion_proveedor=?, descripcion_proveedor=?, email_proveedor=? where id_proveedor=" +v_sub_rut+" ";
+            String query = "update PROVEEDOR set id_proveedor=?,nombre_proveedor=?, telefono_proveedor=?, direccion_proveedor=?, descripcion_proveedor=?, email_proveedor=?, tipo_proveedor=? where id_proveedor=" +id_prov+" ";
             PreparedStatement insertar = conn.prepareCall(query);
             insertar.setInt(1, p.getId_proveedor());
             insertar.setString(2, p.getNom_proveedor());
@@ -425,6 +440,116 @@ public class Manejadora {
             insertar.setString(4, p.getDireccion_proveedor());
             insertar.setString(5, p.getDescripcion_proveedor());
             insertar.setString(6, p.getEmail_proveedor());
+            insertar.setString(7, p.getTipo_proveedor());
+            insertar.execute();
+            insertar.close();
+            conn.close();
+            
+            return true;
+        } catch (SQLException e)
+        {
+            System.out.println("Error de sql" +e.getMessage());
+            return false;
+        }
+    }
+             
+             
+             
+             
+             //CRUD RECETA
+             
+         public static boolean agregarReceta (Receta p)
+         {
+        try 
+        {
+            Connection conn = Conexion_BD.getConexion_BD();
+            
+            String query = "insert into RECETARIO (id_receta,nombre_plato,tipo_receta, descripcion_receta, precio_receta) values (?,?,?,?,?)";
+            PreparedStatement insertar = conn.prepareCall(query);
+            insertar.setInt(1, p.getId_receta());
+            insertar.setString(2, p.getNombre_plato());
+            insertar.setString(3, p.getTipo_receta());
+            insertar.setString(4, p.getDescripcion_receta());
+            insertar.setInt(5, p.getPrecio_receta());
+            insertar.execute();
+            insertar.close();
+            conn.close();
+            
+            return true;
+        } catch (SQLException e)
+        {
+            System.out.println("Error de sql" +e.getMessage());
+            return false;
+        }
+    }
+            public static ResultSet mostrarReceta() throws ClassNotFoundException
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from RECETARIO";
+        PreparedStatement mostrar = conexion.prepareStatement(query);
+        rs = mostrar.executeQuery(); 
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    } 
+            
+         public static ResultSet buscarReceta(String tipo_receta) throws ClassNotFoundException    
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from RECETARIO where tipo_receta = ('"+tipo_receta+"')";
+        PreparedStatement busca = conexion.prepareStatement(query);
+        rs = busca.executeQuery(); 
+        
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    }  
+         
+           public static ResultSet buscar_receta_nombre (String nombre_ingrediente) throws ClassNotFoundException
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from RECETARIO where NOMBRE_PLATO like '"+nombre_ingrediente+"%' ";
+        PreparedStatement busca = conexion.prepareStatement(query);
+        rs = busca.executeQuery(); 
+        
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    }  
+         
+         
+         
+            
+         
+          public static boolean modificarReceta (Receta p)
+    {
+        try 
+        {
+            int id_prov = p.getId_receta();
+            Connection conn = Conexion_BD.getConexion_BD();
+            
+            String query = "update RECETARIO set id_receta=?,nombre_plato=?, tipo_receta=?, descripcion_receta=?, precio_receta=? where id_receta=" +id_prov+" ";
+            PreparedStatement insertar = conn.prepareCall(query);
+            insertar.setInt(1, p.getId_receta());
+            insertar.setString(2, p.getNombre_plato());
+            insertar.setString(3, p.getTipo_receta());
+            insertar.setString(4, p.getDescripcion_receta());
+            insertar.setInt(5, p.getPrecio_receta());
             insertar.execute();
             insertar.close();
             conn.close();
@@ -438,6 +563,169 @@ public class Manejadora {
     }
           
           
+           public static void eliminarReceta(int fila,String nom_prod) throws ClassNotFoundException {
+    
+        Connection reg =  Conexion_BD.getConexion_BD();
+        try
+        {
+        
+        PreparedStatement pst = reg.prepareStatement("DELETE FROM RECETARIO where id_receta=('"+nom_prod+"')");
+        pst.executeUpdate();
+  
+        }catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+           
+           
+           
+           //CRUD FACTURA 
+           
+           
+           public static boolean agregarFactura (Factura p)
+         {
+        try 
+        {
+            Connection conn = Conexion_BD.getConexion_BD();
+            
+            String query = "insert into DOCUMENTO (id_documento,Numero_documento ,tipo_documento , nombre_proveedor , giro, rut_empresa, fecha_emision , fecha_vencimiento , forma_de_pago ,impuesto , descuento , subtotal , total_factura , Descripcion_Factura   ) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement insertar = conn.prepareCall(query);
+            insertar.setInt(1, p.getId_documento());
+            insertar.setInt(2, p.getNumero_documento());
+            insertar.setString(3, p.getTipo_documento());
+            insertar.setString(4, p.getNombre_proveedor());
+            insertar.setString(5, p.getGiro());
+            insertar.setString(6, p.getRut_empresa());
+            insertar.setString(7, p.getFecha_emision());
+            insertar.setString(8, p.getFecha_vencimiento());
+            insertar.setString(9, p.getForma_de_pago());
+            insertar.setString(10, p.getImpuesto());
+            insertar.setInt(11, p.getDescuento());
+            insertar.setInt(12, p.getSubTotal());
+            insertar.setInt(13, p.getTotal_factura());
+            insertar.setString(14, p.getDescripcion_factura());
+            
+            
+            
+            insertar.execute();
+            insertar.close();
+            conn.close();
+            
+            return true;
+        } catch (SQLException e)
+        {
+            System.out.println("Error de sql" +e.getMessage());
+            return false;
+        }
+    }
+           
+            public static ResultSet mostrarFactura() throws ClassNotFoundException
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from DOCUMENTO";
+        PreparedStatement mostrar = conexion.prepareStatement(query);
+        rs = mostrar.executeQuery(); 
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    } 
+            
+             
+           
+          
+                      
+             public static ResultSet buscar_estado_pago(String estado_de_pago) throws ClassNotFoundException    
+    {
+        ResultSet rs=null;
+        try{
+        Connection conexion = Conexion_BD.getConexion_BD();
+        String query = "select * from DOCUMENTO where FORMA_DE_PAGO = ('"+estado_de_pago+"')";
+        PreparedStatement busca = conexion.prepareStatement(query);
+        rs = busca.executeQuery(); 
+        
+        }
+        catch(SQLException e)
+        {
+           System.out.println(e.getMessage());
+        } 
+        return(rs);
+    }  
+             
+             
+              public static void eliminarDocumento(int fila,String id_documento) throws ClassNotFoundException {
+    
+        Connection reg =  Conexion_BD.getConexion_BD();
+        try
+        {
+        
+        PreparedStatement pst = reg.prepareStatement("DELETE FROM DOCUMENTO where id_documento="+id_documento+"");
+        pst.executeUpdate();
+  
+        }catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+      }
+
+               public static boolean modificarDocumento (Factura p)
+    {
+        try 
+        {
+            int id_docu = p.getId_documento();
+            Connection conn = Conexion_BD.getConexion_BD();
+            
+            String query = "update DOCUMENTO set id_documento=(?), Numero_documento=?, tipo_documento =?, nombre_proveedor =?, giro =? , rut_empresa=? , fecha_emision=? , fecha_vencimiento=?, forma_de_pago=? , impuesto=? , descuento=? , subtotal=?, total_factura=?, Descripcion_Factura=?  where id_documento =('" +id_docu+"')";
+            PreparedStatement insertar = conn.prepareCall(query);
+             insertar.setInt(1, p.getId_documento());
+            insertar.setInt(2, p.getNumero_documento());
+            insertar.setString(3, p.getTipo_documento());
+            insertar.setString(4, p.getNombre_proveedor());
+            insertar.setString(5, p.getGiro());
+            insertar.setString(6, p.getRut_empresa());
+            insertar.setString(7, p.getFecha_emision());
+            insertar.setString(8, p.getFecha_vencimiento());
+            insertar.setString(9, p.getForma_de_pago());
+            insertar.setString(10, p.getImpuesto());
+            insertar.setInt(11, p.getDescuento());
+            insertar.setInt(12, p.getSubTotal());
+            insertar.setInt(13, p.getTotal_factura());
+            insertar.setString(14, p.getDescripcion_factura());
+            insertar.execute();
+            insertar.close();
+            conn.close();
+            
+            return true;
+        } catch (SQLException e)
+        {
+            System.out.println("Error de sql" +e.getMessage());
+            return false;
+        }
+             
+             
+             
+             
+             
+             
+            
+            
+             
+            
+          
+          
+          
+          
+          
+          
+             
+             
+          
+          
           
           
           
@@ -456,4 +744,8 @@ public class Manejadora {
         
     
     
+}
+
+               
+               
 }
